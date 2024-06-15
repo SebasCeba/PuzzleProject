@@ -18,6 +18,8 @@ public class JumpModule : MonoBehaviour
     [SerializeField] private float moonJumpForce;
     [SerializeField] private float moonGravityDuration; 
     private bool useMoonGravity = false;
+
+    private Coroutine moonGravityCoroutine; 
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +34,12 @@ public class JumpModule : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            StartCoroutine(MoonAbility(true)); 
-            //MoonApplyGravity(true);
-        }
-        else
-        {
-            StopAllCoroutines(); 
-            //MoonApplyGravity(false);
+            //This should check if the coroutine is on or not
+            if(moonGravityCoroutine != null)
+            {
+                StopCoroutine(moonGravityCoroutine);
+            }
+            moonGravityCoroutine = StartCoroutine(MoonAbility()); 
         }
     }
     public void Jump()
@@ -72,22 +73,25 @@ public class JumpModule : MonoBehaviour
         
         controller.Move(velocity * Time.deltaTime);
     }
-
+    //The gravity ability is here so if you need to change anything it would be here. So when making modules, cut everything here and below. 
     private void MoonApplyGravity(bool isMoonGravity)
     {
         useMoonGravity = isMoonGravity;
-        JumpForce = isMoonGravity ? moonJumpForce : earthJumpForce; 
-    }
-
-    public IEnumerator MoonAbility(bool isMoonGravity)
-    {
-        useMoonGravity = isMoonGravity;
         JumpForce = isMoonGravity ? moonJumpForce : earthJumpForce;
-        yield return new WaitForSeconds(moonGravityDuration); 
+    }
+    //This boolen was ruining the code and now the code is feeling a lot better 
+    public IEnumerator MoonAbility()
+    {
+        //This will change the gravity of earth to the moon's gravitational pull 
+        MoonApplyGravity(true); 
+        yield return new WaitForSeconds(moonGravityDuration);
+        //Returns the gracitational pull of the moon to the earth's pull.
+        MoonApplyGravity(false); 
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        //Use tags whenever you want to shift the gravity of the player
         if(other.CompareTag("MoonRoom"))
         {
             MoonApplyGravity(true); 

@@ -3092,7 +3092,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   moonJumpForce: 4.5
-  moonGravityDuration: 4
+  moonGravityDuration: 5
 --- !u!114 &1583779307
 MonoBehaviour:
   m_ObjectHideFlags: 0
