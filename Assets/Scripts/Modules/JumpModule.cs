@@ -6,20 +6,17 @@ public class JumpModule : MonoBehaviour
 {
     //We referencing the controller on the gameobject player 
     [SerializeField] CharacterController controller;
-    [SerializeField] private float JumpForce;
     [SerializeField] private LayerMask floorLayer;
+    [SerializeField] private float earthJumpForce = 5f;
+    [SerializeField] private float moonJumpForce;
+    [SerializeField] private float moonGravityDuration;
 
+    private float JumpForce;
     private Vector3 velocity;
     public const float gravityAcceleration = -9.81f;
-    private float earthJumpForce = 5f; 
-
-    //Attempting to change the gravity of the player 
-    public const float moonGravityAcceleration = -1.625f;
-    [SerializeField] private float moonJumpForce;
-    [SerializeField] private float moonGravityDuration; 
+    public const float moonGravityAcceleration = -1.625f;    
     private bool useMoonGravity = false;
 
-    private Coroutine moonGravityCoroutine; 
     // Start is called before the first frame update
     void Start()
     {
@@ -32,14 +29,9 @@ public class JumpModule : MonoBehaviour
         ApplyGravity();
         Jump();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            //This should check if the coroutine is on or not
-            if(moonGravityCoroutine != null)
-            {
-                StopCoroutine(moonGravityCoroutine);
-            }
-            moonGravityCoroutine = StartCoroutine(MoonAbility()); 
+            StartCoroutine(MoonAbility(true)); 
         }
     }
     public void Jump()
@@ -80,13 +72,13 @@ public class JumpModule : MonoBehaviour
         JumpForce = isMoonGravity ? moonJumpForce : earthJumpForce;
     }
     //This boolen was ruining the code and now the code is feeling a lot better 
-    public IEnumerator MoonAbility()
+    public IEnumerator MoonAbility(bool isMoonGravity)
     {
-        //This will change the gravity of earth to the moon's gravitational pull 
-        MoonApplyGravity(true); 
+        useMoonGravity = isMoonGravity;
+        JumpForce = isMoonGravity ? moonJumpForce : earthJumpForce; 
         yield return new WaitForSeconds(moonGravityDuration);
-        //Returns the gracitational pull of the moon to the earth's pull.
-        MoonApplyGravity(false); 
+        useMoonGravity = false;
+        JumpForce = earthJumpForce; 
     }
 
     private void OnTriggerEnter(Collider other)
