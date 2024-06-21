@@ -9,7 +9,9 @@ public class Turret : MonoBehaviour
     public float range = 5;
     public int damage = 10; //Amount of damage to deal to the player 
     public float damageInterval = 1f; //Creates an interval between each damage 
-    private float lastDamageTime; 
+    private float lastDamageTime;
+
+    LineRenderer laser;
 
     private HealthModule playerHealth;
     void Start()

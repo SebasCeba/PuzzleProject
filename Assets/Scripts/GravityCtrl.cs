@@ -5,7 +5,7 @@ using UnityEngine;
 public class GravityCtrl : MonoBehaviour
 {
     public GravityOrbit Gravity;
-    private CharacterController playerController;
+    private Rigidbody playerController;
 
     public float RotationSpeed = 20;
     public float gravityScale = 1.0f;
@@ -13,9 +13,10 @@ public class GravityCtrl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerController = GetComponent<CharacterController>(); 
+        playerController = GetComponent<Rigidbody>(); 
     }
 
+    //Urgent - REvist the video 
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -41,7 +42,7 @@ public class GravityCtrl : MonoBehaviour
             transform.up = Vector3.Lerp(transform.up, gravityUp, RotationSpeed * Time.deltaTime);
 
             Vector3 gravityForce = -gravityUp * Gravity.Gravity * gravityScale; 
-            playerController.Move(gravityForce * Time.deltaTime); 
+            playerController.AddForce(gravityForce * Time.deltaTime); 
         }
     }
 }
