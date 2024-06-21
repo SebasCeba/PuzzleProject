@@ -39,4 +39,9 @@ public class HealthModule : MonoBehaviour
             Debug.Log("Player has died");
         }
     }
+
+    public int GetMaxHealth()
+    {
+        return maxHealth;
+    }
 }
