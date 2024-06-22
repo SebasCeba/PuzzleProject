@@ -41,8 +41,9 @@ public class GravityCtrl : MonoBehaviour
 
             transform.up = Vector3.Lerp(transform.up, gravityUp, RotationSpeed * Time.deltaTime);
 
-            Vector3 gravityForce = -gravityUp * Gravity.Gravity * gravityScale; 
-            playerController.AddForce(gravityForce * Time.deltaTime); 
+            playerController.AddForce((-gravityUp * Gravity.Gravity) * playerController.mass); 
+            //Vector3 gravityForce = -gravityUp * Gravity.Gravity * gravityScale; 
+            //playerController.AddForce(gravityForce * Time.deltaTime); 
         }
     }
 }

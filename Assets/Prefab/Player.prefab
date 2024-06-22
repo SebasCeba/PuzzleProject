@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1410016058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1410016059}
+  m_Layer: 3
+  m_Name: SpawnPoint(car)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1410016059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410016058}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8382604664655969951}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &8382604664655969944
 GameObject:
   m_ObjectHideFlags: 0
@@ -41,6 +72,7 @@ Transform:
   - {fileID: 8382604665917482672}
   - {fileID: 8761892957103244088}
   - {fileID: 8382604664903695139}
+  - {fileID: 1410016059}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -220,6 +252,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a9e640f7a19e648862da4f12a52e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carAbilityTimer: 5
+  carPrefab: {fileID: 380828902469487087, guid: 2e40043729f5ceb41b74439c73c70621,
+    type: 3}
+  rotationOffset: {x: 0, y: 180, z: 0}
 --- !u!1 &8382604664816497745
 GameObject:
   m_ObjectHideFlags: 0
