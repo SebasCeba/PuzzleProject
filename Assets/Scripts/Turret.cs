@@ -5,42 +5,52 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    [SerializeField] private LineRenderer lineRenderer; 
     [SerializeField] private Transform laserAim; 
+
     public float range = 5;
     public int damage = 10; //Amount of damage to deal to the player 
     public float damageInterval = 1f; //Creates an interval between each damage 
     private float lastDamageTime;
 
-    LineRenderer laser;
+    private RaycastHit rayHit;
+    private Ray ray; 
 
     private HealthModule playerHealth;
     void Start()
     {
         playerHealth = FindObjectOfType<HealthModule>();
+        lineRenderer.positionCount = 2; 
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction = laserAim.forward;
-        Ray laserRay = new Ray(laserAim.position, direction);
+        ray = new(laserAim.position, laserAim.forward); 
 
-        if(Physics.Raycast(laserRay, out RaycastHit hit, range))
+        if(Physics.Raycast(ray, out rayHit, range))
         {
-            if (hit.collider.CompareTag("Player") && Time.time - lastDamageTime >= damageInterval)
+            lineRenderer.SetPosition(0, laserAim.position);
+            lineRenderer.SetPosition(1, rayHit.point);
+            if (rayHit.collider.CompareTag("Player") && Time.time - lastDamageTime >= damageInterval)
             {
-                playerHealth.DeductHealth(damage); 
+                playerHealth.DeductHealth(damage);
                 lastDamageTime = Time.time;
             }
-            else if(hit.collider.CompareTag(tag))
-            {
-                Debug.Log("you are lucky that you aren't a player");
-            }
-            Debug.DrawRay(laserAim.position, direction * hit.distance, Color.red);
         }
         else
         {
-            Debug.DrawRay(laserAim.position, direction * range, Color.green); 
+            lineRenderer.SetPosition(0, laserAim.position);
+            lineRenderer.SetPosition(1, laserAim.position + laserAim.forward * range); 
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(laserAim.position, ray.direction * range);
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(rayHit.point, 0.23f); 
     }
 }
