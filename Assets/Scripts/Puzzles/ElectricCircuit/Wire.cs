@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Wire : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Animator _animator;
+
+    public void PowerUp()
     {
-        
+        _animator.SetBool("isConnectionComplete", true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PowerDown()
     {
-        
+        _animator.SetBool("isConnectionComplete", false);
     }
 }

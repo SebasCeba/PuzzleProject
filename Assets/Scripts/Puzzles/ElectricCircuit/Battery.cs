@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Battery : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject _electricityVFX;
+
+    public void ElectricityLeakageOn()
     {
-        
+        _electricityVFX.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ElectricityLeakageOff()
     {
-        
+        _electricityVFX.SetActive(false);
     }
 }

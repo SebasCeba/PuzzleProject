@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class LightBulb : MonoBehaviour
 {
+    [SerializeField] private Animator _animator;
+    [SerializeField] private float _delayTime;
+
     public void LightOn()
     {
-        Debug.Log("light on");
+        Invoke("DelayedLightOn", _delayTime);
     }
 
     public void LightOff()
     {
-        Debug.Log("light off");
+        Invoke("DelayedLightOff", _delayTime);
+    }
+
+    private void DelayedLightOn()
+    {
+        _animator.SetBool("isConnectionComplete", true);
+    }
+
+    private void DelayedLightOff()
+    {
+        _animator.SetBool("isConnectionComplete", false);
     }
 }

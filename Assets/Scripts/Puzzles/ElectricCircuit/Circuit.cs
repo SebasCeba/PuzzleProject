@@ -10,11 +10,21 @@ public class Circuit : MonoBehaviour
 
     public void OnCircuitComplete()
     {
+        _battery.ElectricityLeakageOff();
+        foreach (var wire in _wires)
+        {
+            wire.PowerUp();
+        }
         _lightBulb.LightOn();
     }
 
     public void OnCircuitBroken()
     {
+        _battery.ElectricityLeakageOn();
+        foreach (var wire in _wires)
+        {
+            wire.PowerDown();
+        }
         _lightBulb.LightOff();
     }
 }
