@@ -58,7 +58,7 @@ public class InputController : MonoBehaviour
         {
             commandModule.CreateCommand();
         }
-        if (interactModule != null && Input.GetKeyDown(KeyCode.E))
+        if (interactModule != null && Input.GetKeyDown(KeyCode.R))
         {
             interactModule.InteractWithObject(); 
         }

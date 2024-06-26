@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class AbilityModule : MonoBehaviour
 {
-    [SerializeField] private float carAbilityTimer; 
+    [SerializeField] CarModule carModule;
+    [SerializeField] private float carAbilityTimer;
+
     public GameObject carPrefab;
     public Vector3 rotationOffset;
-
-    private GameObject instantiatedCar; 
 
     // Update is called once per frame
     void Update()
@@ -17,21 +17,18 @@ public class AbilityModule : MonoBehaviour
         {
             StartCoroutine(carAbility()); 
         }
+        else if(carPrefab != null)
+        {
+            gameObject.SetActive(true);
+        }
     }
 
-    public IEnumerator carAbility()
+    private IEnumerator carAbility()
     {
         Quaternion carRotation = transform.rotation * Quaternion.Euler(rotationOffset);
 
-        instantiatedCar = Instantiate(carPrefab, transform.position, carRotation);
+        Instantiate(carPrefab, transform.position, carRotation);
         gameObject.SetActive(false);
         yield return new WaitForSeconds(carAbilityTimer); 
-
-        if(instantiatedCar != null)
-        {
-            Destroy(instantiatedCar); 
-        }
-         
-        gameObject.SetActive(true);
     }
 }

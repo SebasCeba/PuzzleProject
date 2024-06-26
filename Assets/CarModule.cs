@@ -7,7 +7,7 @@ using UnityEngine;
 public class CarModule : MonoBehaviour
 {
     [SerializeField] WheelCollider frontLeft, frontRight, backLeft, backRight;
-
+ 
     public float acceleration = 500f;
     public float breakingForce = 300f;
     public float maxTurnAngle = 15f;
@@ -44,5 +44,13 @@ public class CarModule : MonoBehaviour
         currentTurnAngle = maxTurnAngle * Input.GetAxis("Horizontal");
         frontLeft.steerAngle = currentTurnAngle;
         frontRight.steerAngle = currentTurnAngle;
+    }
+
+    private void DestroyCar()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Destroy(gameObject); 
+        }
     }
 }

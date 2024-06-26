@@ -26,7 +26,7 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ray = new(laserAim.position, laserAim.forward); 
+        ray = new(laserAim.position, laserAim.up); 
 
         if(Physics.Raycast(ray, out rayHit, range))
         {
@@ -41,7 +41,7 @@ public class Turret : MonoBehaviour
         else
         {
             lineRenderer.SetPosition(0, laserAim.position);
-            lineRenderer.SetPosition(1, laserAim.position + laserAim.forward * range); 
+            lineRenderer.SetPosition(1, laserAim.position + laserAim.up * range); 
         }
     }
 

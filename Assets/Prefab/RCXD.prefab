@@ -141,10 +141,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c7f87e0a5689cf4481d5bf3f6a2faef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carAbilityTimer: 5
   frontLeft: {fileID: 2397671374440856230}
   frontRight: {fileID: 711061539411647622}
   backLeft: {fileID: 9048711666094573345}
   backRight: {fileID: 2514270197015572151}
+  carPrefab: {fileID: 0}
+  rotationOffset: {x: 0, y: 0, z: 0}
   acceleration: 500
   breakingForce: 300
   maxTurnAngle: 15

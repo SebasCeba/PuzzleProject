@@ -86,14 +86,14 @@ public class JumpModule : MonoBehaviour
         //Use tags whenever you want to shift the gravity of the player
         if(other.CompareTag("MoonRoom"))
         {
-            MoonApplyGravity(true); 
+            JumpForce = moonJumpForce;   
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if(other.CompareTag("MoonRoom"))
         {
-            MoonApplyGravity(false);
+            JumpForce = earthJumpForce; 
         }
     }
 }

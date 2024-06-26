@@ -252,6 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a9e640f7a19e648862da4f12a52e86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carModule: {fileID: 0}
   carAbilityTimer: 5
   carPrefab: {fileID: 380828902469487087, guid: 2e40043729f5ceb41b74439c73c70621,
     type: 3}
