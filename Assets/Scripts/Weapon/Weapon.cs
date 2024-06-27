@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Weapon : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public abstract class Weapon : MonoBehaviour
     protected string _targetTag;
 
     protected bool _canAttack;
+
+    public UnityAction ActOnAttackHappened;
 
     protected virtual void Start()
     {
@@ -57,6 +60,7 @@ public abstract class Weapon : MonoBehaviour
         }
         EnableAttack();
         AttackAction();
+        ActOnAttackHappened.Invoke();
         Invoke("DisableAttack", _attackDuration);
         _cooldown.StartCoolingDown();
     }

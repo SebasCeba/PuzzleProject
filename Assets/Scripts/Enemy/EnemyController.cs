@@ -24,15 +24,18 @@ namespace Enemy
         [SerializeField] private float _waitTime;
         [SerializeField] private float _walkSpeed;
         [SerializeField] private Transform[] _waypoints;
+        [SerializeField] private AudioSource _patrolAudio;
 
         [Header("Chase")]
         [SerializeField] private float _runSpeed;
         [SerializeField] private float _stopDistance;
+        [SerializeField] private AudioSource _chaseAudio;
 
         [Header("Attack")]
         [SerializeField] private Weapon _weapon;
         [SerializeField] private string _targetTag;
         [SerializeField] private Transform _holdPoint;
+        [SerializeField] private AudioSource _attackAudio;
 
         [Header("Scan")]
         [SerializeField] private float _viewRadius;
@@ -139,26 +142,29 @@ namespace Enemy
             return _playerPosition;
         }
 
-        public void GetPatrolParams(out NavMeshAgent agent, out float waitTime, out float speed, out Transform[] waypoints)
+        public void GetPatrolParams(out NavMeshAgent agent, out float waitTime, out float speed, out Transform[] waypoints, out AudioSource audioSource)
         {
             agent = _agent;
             waitTime = _waitTime;
             speed = _walkSpeed;
             waypoints = _waypoints;
+            audioSource = _patrolAudio;
         }
 
-        public void GetChaseParams(out NavMeshAgent agent, out float speed, out float stopDistance)
+        public void GetChaseParams(out NavMeshAgent agent, out float speed, out float stopDistance, out AudioSource audioSource)
         {
             agent = _agent;
             speed = _runSpeed;
             stopDistance = _stopDistance;
+            audioSource = _chaseAudio;
         }
 
-        public void GetAttackParams(out NavMeshAgent agent, out float stopDistance, out Weapon weapon)
+        public void GetAttackParams(out NavMeshAgent agent, out float stopDistance, out Weapon weapon, out AudioSource audioSource)
         {
             agent = _agent;
             stopDistance = _stopDistance;
             weapon = _weapon;
+            audioSource = _attackAudio;
         }
     }
 }

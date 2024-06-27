@@ -13,6 +13,6 @@ public class AttackBullet : MonoBehaviour
         {
             collision.gameObject.GetComponent<HealthModule>().DeductHealth(_damage);
         }
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 }

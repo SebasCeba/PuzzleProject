@@ -12,6 +12,7 @@ namespace Enemy
         private float _waitTime;
         private float _speed;
         private Transform[] _waypoints;
+        private AudioSource _audioSource;
 
         private int _index;
 
@@ -19,18 +20,19 @@ namespace Enemy
 
         public PatrolState(EnemyController controller) : base(controller)
         {
-            _controller.GetPatrolParams(out _agent, out _waitTime, out _speed, out _waypoints);
+            _controller.GetPatrolParams(out _agent, out _waitTime, out _speed, out _waypoints, out _audioSource);
         }
 
         public override void EnterState()
         {
             //Debug.Log("enter patrol");
             _index = Random.Range(0, _waypoints.Length);
+            _audioSource.Play();
         }
 
         public override void ExitState()
         {
-
+            _audioSource.Stop();
         }
 
         public override void RunState()

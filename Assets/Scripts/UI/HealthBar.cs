@@ -19,6 +19,6 @@ public class HealthBar : MonoBehaviour
     public void SetHealthBar(int health)
     {
         _slider.value = health / _maxValue;
-        Debug.Log(_slider.value.ToString() + " " + health.ToString());
+        //Debug.Log(_slider.value.ToString() + " " + health.ToString());
     }
 }

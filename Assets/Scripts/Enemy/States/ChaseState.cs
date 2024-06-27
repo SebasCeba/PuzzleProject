@@ -10,10 +10,11 @@ namespace Enemy
         private NavMeshAgent _agent;
         private float _speed;
         private float _stopDistance;
+        private AudioSource _audioSource;
 
         public ChaseState(EnemyController controller) : base(controller)
         {
-            _controller.GetChaseParams(out _agent, out _speed, out _stopDistance);
+            _controller.GetChaseParams(out _agent, out _speed, out _stopDistance, out _audioSource);
         }
 
         public override void EnterState()
@@ -21,11 +22,12 @@ namespace Enemy
             //Debug.Log("enter chase");
             _agent.speed = _speed;
             _agent.SetDestination(_controller.GetPlayerPosition());
+            _audioSource.Play();
         }
 
         public override void ExitState()
         {
-            
+            _audioSource.Stop();
         }
 
         public override void RunState()
