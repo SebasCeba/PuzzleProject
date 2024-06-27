@@ -46,6 +46,11 @@ public class CarModule : MonoBehaviour
         frontRight.steerAngle = currentTurnAngle;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
+
     private void DestroyCar()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

@@ -18,8 +18,7 @@ public class InputController : MonoBehaviour
     [SerializeField] private JumpModule jumpModule; 
     [SerializeField] private InteractModule interactModule;
     [SerializeField] private CommandInteractor commandModule;
-    [SerializeField] private HealthModule healthModule;
-    [SerializeField] private AbilityModule abilityModule; 
+    [SerializeField] private HealthModule healthModule; 
 
     private bool jumping;
     private bool canLockWithMouse; 

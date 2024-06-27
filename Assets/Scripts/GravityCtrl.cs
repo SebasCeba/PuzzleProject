@@ -16,7 +16,7 @@ public class GravityCtrl : MonoBehaviour
         playerController = GetComponent<Rigidbody>(); 
     }
 
-    //Urgent - REvist the video 
+    //Urgent - Revist the video 
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -26,20 +26,20 @@ public class GravityCtrl : MonoBehaviour
 
             if(Gravity.FixedDirection)
             {
-                gravityUp = Gravity.transform.up; 
+                gravityUp = -Gravity.transform.forward; 
             }
             else
             {
                 gravityUp = (transform.position - Gravity.transform.forward).normalized;
             }
 
-            gravityUp = (transform.position - Gravity.transform.position).normalized;
+            //gravityUp = (transform.position - Gravity.transform.position).normalized;
 
-            Vector3 localUp = transform.up;
+            Vector3 localUp = transform.forward;
 
             Quaternion targetrotation = Quaternion.FromToRotation(localUp, gravityUp) * transform.rotation; 
 
-            transform.up = Vector3.Lerp(transform.up, gravityUp, RotationSpeed * Time.deltaTime);
+            transform.forward = Vector3.Lerp(transform.forward, gravityUp, RotationSpeed * Time.deltaTime);
 
             playerController.AddForce((-gravityUp * Gravity.Gravity) * playerController.mass); 
             //Vector3 gravityForce = -gravityUp * Gravity.Gravity * gravityScale; 
