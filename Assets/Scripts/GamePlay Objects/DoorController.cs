@@ -4,55 +4,55 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
-    //This needs to be in two different scripts, one with keys and the other without. 
-    //Or not, just change the methods. 
     [SerializeField]
-    private Animator animator;
-
+    private float moveDistance;
+    [SerializeField]
+    private float moveDuration;
+    [SerializeField]
+    private bool needskey;
     private bool isKeyCollected;
-    [SerializeField]
-    private bool needskey; 
 
+    private Vector3 initialPosition;
+    private Vector3 targetPosition;
+
+    private void Start()
+    {
+        initialPosition = transform.position;
+        targetPosition = initialPosition + Vector3.right * moveDistance; 
+    }
     public void OpenDoor()
     {
-        animator.SetBool("DoorOpen", true);
-    }
-
-    public void OpenWithKey()
-    {
-        if (needskey && !isKeyCollected)
+        if(!needskey || (needskey && !isKeyCollected))
         {
-            animator.SetBool("DoorOpen", true);
-        }
-        else
-        {
-            animator.SetBool("DoorOpen", false);
-        }
+            StartCoroutine(MoveDoor(targetPosition));
+        } 
     }
 
     public void CloseDoor()
     {
-        animator.SetBool("DoorOpen", false);
+        StartCoroutine(MoveDoor(initialPosition)); 
     }
     public void SetKeyCollected(bool collected)
     {
         isKeyCollected = collected;
+        if(needskey && isKeyCollected)
+        {
+            OpenDoor();
+        }
     }
-    
-    private void OnTriggerEnter(Collider other)
+
+    private IEnumerator MoveDoor(Vector3 target)
     {
-        
-    }
-    private void OnTriggerStay(Collider other) //Treated as the same as the UPdate()
-    {
-        //Debug.Log("Inside the trigger"); 
-    }
-    private void OnTriggerExit(Collider other)
-    {
-         
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        
+        float elapsedTime = 0f;
+        Vector3 startingPos = transform.position; 
+
+        while(elapsedTime < moveDuration)
+        {
+            transform.position = Vector3.Lerp(startingPos, target, elapsedTime / moveDuration); 
+            elapsedTime += Time.deltaTime;
+            yield return null;  
+        }
+
+        transform.position = target; 
     }
 }

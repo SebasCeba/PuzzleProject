@@ -5,52 +5,95 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    [SerializeField] private LineRenderer lineRenderer; 
-    [SerializeField] private Transform laserAim; 
+    [SerializeField] private LineRenderer lineRenderer;
+    [SerializeField] private Transform laserAim;
+    [SerializeField] private Transform turretSight; 
+    [SerializeField] private Transform AimTransform;
+    [SerializeField] private bool shouldTargetPlayer = true;
+    [SerializeField] private LayerMask playerLayer; 
 
-    public float range = 5;
+    public float range = 200;
     public int damage = 10; //Amount of damage to deal to the player 
     public float damageInterval = 1f; //Creates an interval between each damage 
     private float lastDamageTime;
+    private bool isPlayerInRange = true; 
 
     private RaycastHit rayHit;
-    private Ray ray; 
+    private Ray ray;
 
     private HealthModule playerHealth;
     void Start()
     {
         playerHealth = FindObjectOfType<HealthModule>();
-        lineRenderer.positionCount = 2; 
+        lineRenderer.positionCount = 2;
+
+        if (turretSight == null || laserAim == null)
+        {
+            Debug.LogError("LaserAim or TurretSIght is not assigned."); 
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        ray = new(laserAim.position, laserAim.up); 
+        if (shouldTargetPlayer && isPlayerInRange && AimTransform != null)
+        {
+            float distanceToPlayer = Vector3.Distance(turretSight.position, AimTransform.position);
 
-        if(Physics.Raycast(ray, out rayHit, range))
-        {
-            lineRenderer.SetPosition(0, laserAim.position);
-            lineRenderer.SetPosition(1, rayHit.point);
-            if (rayHit.collider.CompareTag("Player") && Time.time - lastDamageTime >= damageInterval)
+            if(distanceToPlayer <= range)
             {
-                playerHealth.DeductHealth(damage);
-                lastDamageTime = Time.time;
+                laserAim.LookAt(AimTransform);
+
+                ray = new(laserAim.position, laserAim.forward);
+
+                if (Physics.Raycast(ray, out rayHit, range, playerLayer))
+                {
+                    lineRenderer.SetPosition(0, laserAim.position);
+                    lineRenderer.SetPosition(1, rayHit.point);
+
+                    if (rayHit.collider.CompareTag("Player") && Time.time - lastDamageTime >= damageInterval)
+                    {
+                        playerHealth.DeductHealth(damage);
+                        lastDamageTime = Time.time;
+                    }
+                }
+                else
+                {
+                    lineRenderer.SetPosition(0, laserAim.position);
+                    lineRenderer.SetPosition(1, laserAim.position + laserAim.forward * range);
+                }
             }
-        }
-        else
-        {
-            lineRenderer.SetPosition(0, laserAim.position);
-            lineRenderer.SetPosition(1, laserAim.position + laserAim.up * range); 
-        }
+            else
+            {
+                lineRenderer.SetPosition(0, laserAim.position);
+                lineRenderer.SetPosition(1, laserAim.position);
+            }
+        } 
     }
 
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.CompareTag("Player"))
+    //    {
+    //        isPlayerInRange = true;
+    //        Debug.Log("Player enetered range"); 
+    //    }
+    //}
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        isPlayerInRange = false;
+    //        Debug.Log("Player exited range");
+    //    }
+    //}
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawRay(laserAim.position, ray.direction * range);
 
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(rayHit.point, 0.23f); 
+        Gizmos.DrawWireSphere(rayHit.point, 0.23f);
     }
 }

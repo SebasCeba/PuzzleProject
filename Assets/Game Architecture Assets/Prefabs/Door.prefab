@@ -45,7 +45,6 @@ GameObject:
   - component: {fileID: 8761205519909524935}
   - component: {fileID: 8761205519909524932}
   - component: {fileID: 8761205519909524933}
-  - component: {fileID: 8761205519909524930}
   - component: {fileID: 8761205519909524953}
   m_Layer: 0
   m_Name: Door
@@ -132,27 +131,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!95 &8761205519909524930
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8761205519909524931}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eb2df0f562208244784e191d31460d03, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &8761205519909524953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d61155c5d866648a6a49d6842f3281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 8761205519909524930}
+  moveDistance: 0
+  moveDuration: 0
   needskey: 0
 --- !u!1001 &3407765562766909367
 PrefabInstance:
@@ -269,6 +248,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3407765562766909367}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &79764349
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7411673342455846285}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0015132129, y: 0.0015132128, z: 0.0002155661}
+  m_Center: {x: 1.4551917e-10, y: -2.9103828e-10, z: 0.000106290056}
 --- !u!114 &206960127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,16 +291,3 @@ MonoBehaviour:
   highlightedMaterial: {fileID: 4875329586141879171, guid: fcb73fb384a6d436da6fa8b931d24739,
     type: 3}
   animator: {fileID: 0}
---- !u!65 &79764349
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7411673342455846285}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.0015132129, y: 0.0015132128, z: 0.0002155661}
-  m_Center: {x: 1.4551917e-10, y: -2.9103828e-10, z: 0.000106290056}

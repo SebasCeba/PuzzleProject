@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.1522762, g: 0.17242037, b: 0.1811822, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -130,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 673572762}
     m_Modifications:
+    - target: {fileID: 7702316154927996720, guid: dc715fca2d69e61478df08ab8723f81c,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7702316154927996721, guid: dc715fca2d69e61478df08ab8723f81c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -199,16 +204,16 @@ PrefabInstance:
         type: 3}
       propertyPath: OnInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1523284350}
     - target: {fileID: 7702316154927996735, guid: dc715fca2d69e61478df08ab8723f81c,
         type: 3}
       propertyPath: OnInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnKeyPickUp
+      value: OpenDoor
       objectReference: {fileID: 0}
     - target: {fileID: 7702316154927996735, guid: dc715fca2d69e61478df08ab8723f81c,
         type: 3}
       propertyPath: OnInteracted.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: DoorKeyButton, Assembly-CSharp
+      value: DoorController, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc715fca2d69e61478df08ab8723f81c, type: 3}
@@ -299,6 +304,16 @@ PrefabInstance:
       propertyPath: needskey
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8761205519909524953, guid: eb262dc09f1ac6848902488d8364a037,
+        type: 3}
+      propertyPath: moveDistance
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761205519909524953, guid: eb262dc09f1ac6848902488d8364a037,
+        type: 3}
+      propertyPath: moveDuration
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8761205520084468194, guid: eb262dc09f1ac6848902488d8364a037,
         type: 3}
       propertyPath: m_IsActive
@@ -308,12 +323,6 @@ PrefabInstance:
     - {fileID: 8761205519053161234, guid: eb262dc09f1ac6848902488d8364a037, type: 3}
     - {fileID: 8761205519053161257, guid: eb262dc09f1ac6848902488d8364a037, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: eb262dc09f1ac6848902488d8364a037, type: 3}
---- !u!95 &154836619 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 8761205519909524930, guid: eb262dc09f1ac6848902488d8364a037,
-    type: 3}
-  m_PrefabInstance: {fileID: 8761205520059894601}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &154836624 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8761205519909524953, guid: eb262dc09f1ac6848902488d8364a037,
@@ -3202,7 +3211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d61155c5d866648a6a49d6842f3281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 154836619}
+  moveDistance: 0
+  moveDuration: 0
   needskey: 0
 --- !u!65 &1949260442
 BoxCollider:

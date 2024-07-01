@@ -10,6 +10,7 @@ public class JumpModule : MonoBehaviour
     [SerializeField] private float earthJumpForce = 5f;
     [SerializeField] private float moonJumpForce;
     [SerializeField] private float moonGravityDuration;
+    [SerializeField] private float increasedMoonJumpForce; 
 
     private float JumpForce;
     private Vector3 velocity;
@@ -86,14 +87,15 @@ public class JumpModule : MonoBehaviour
         //Use tags whenever you want to shift the gravity of the player
         if(other.CompareTag("MoonRoom"))
         {
-            JumpForce = moonJumpForce;   
+            MoonApplyGravity(true);
+            JumpForce = increasedMoonJumpForce;
         }
     }
     private void OnTriggerExit(Collider other)
     {
         if(other.CompareTag("MoonRoom"))
         {
-            JumpForce = earthJumpForce; 
+            MoonApplyGravity(false);
         }
     }
 }

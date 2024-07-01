@@ -1,31 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
 {
-    [SerializeField] private Transform spawnpoint; 
-    public GameObject playerPrefab;
+    public GameObject player;
     private Vector3 currentCheckpoint;
     HealthModule healthModule;
 
     private void Start()
     {
-        currentCheckpoint = transform.position; //Initial checkpoint 
-        healthModule = playerPrefab.GetComponent<HealthModule>();
+        currentCheckpoint = player.transform.position; //Initial checkpoint 
+        Debug.Log(currentCheckpoint.ToString());    
+        healthModule = player.GetComponent<HealthModule>();
+
+        if(healthModule != null )
+        {
+            //healthModule.OnPlayerDeath.AddListener(RespawnPlayer); 
+        }
     }
 
     public void SetCheckPoint(Vector3 newCheckpoint)
     {
-        currentCheckpoint = newCheckpoint; 
+        currentCheckpoint = newCheckpoint;
+        Debug.Log("New checkpoint set at: " + newCheckpoint); 
     }
 
     public void RespawnPlayer()
     {
-        playerPrefab.transform.localPosition = spawnpoint.position;
-        if(healthModule != null )
-        {
-            healthModule.Resethealth();
-        }       
+        player.transform.position = currentCheckpoint;
+        Debug.Log(player.transform.position.ToString());
+        Debug.Log("Player has respawned at checkpoint"); 
     }
 }

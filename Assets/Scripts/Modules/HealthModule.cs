@@ -28,6 +28,9 @@ public class HealthModule : MonoBehaviour
     private void Die()
     {   
         OnPlayerDeath.Invoke();//Notify the checkpoint manager 
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Resethealth();
         Debug.Log("Player has died");    
     }
     public void Resethealth()

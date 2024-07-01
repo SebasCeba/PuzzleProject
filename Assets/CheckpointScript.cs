@@ -16,6 +16,7 @@ public class CheckpointScript : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             checkpointManager.SetCheckPoint(transform.position);
+            Debug.Log("CheckPoint reached: " + transform.position);
         }
     }
 }

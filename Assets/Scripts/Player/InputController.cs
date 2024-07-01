@@ -70,5 +70,11 @@ public class InputController : MonoBehaviour
             movementModule.MovePlayer(moveDirection);
             movementModule.RotatePlayer(aimDirection); 
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true; 
+        }
     }
 }
