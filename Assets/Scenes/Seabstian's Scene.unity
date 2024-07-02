@@ -955,11 +955,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1578321730, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.49090958
+      value: 0.118183136
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: range
-      value: 200
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: damage
@@ -6219,6 +6219,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8382604664655969936, guid: 9012e9b0fbc103e4fad14a08f471b42a,
         type: 3}
+      propertyPath: floorLayer.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382604664655969936, guid: 9012e9b0fbc103e4fad14a08f471b42a,
+        type: 3}
       propertyPath: increasedMoonJumpForce
       value: 7
       objectReference: {fileID: 0}
@@ -6265,7 +6270,7 @@ PrefabInstance:
     - target: {fileID: 8382604664655969951, guid: 9012e9b0fbc103e4fad14a08f471b42a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -461.05
+      value: -467.75
       objectReference: {fileID: 0}
     - target: {fileID: 8382604664655969951, guid: 9012e9b0fbc103e4fad14a08f471b42a,
         type: 3}
@@ -6301,6 +6306,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382604665917482675, guid: 9012e9b0fbc103e4fad14a08f471b42a,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 1527
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8382604664655969941, guid: 9012e9b0fbc103e4fad14a08f471b42a, type: 3}
@@ -7810,7 +7820,7 @@ GameObject:
   - component: {fileID: 1709996849}
   - component: {fileID: 1709996848}
   - component: {fileID: 1709996847}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: 'Floor '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7829,7 +7839,7 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 30
+  m_CookingOptions: -1
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1709996848
 MeshRenderer:
@@ -7851,7 +7861,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a2627f7515ad949e0afb835898d004fd, type: 2}
+  - {fileID: 2100000, guid: da65ddbecde651d4e84a82dbddd29e5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

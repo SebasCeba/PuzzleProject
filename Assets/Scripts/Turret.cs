@@ -68,26 +68,9 @@ public class Turret : MonoBehaviour
                 lineRenderer.SetPosition(0, laserAim.position);
                 lineRenderer.SetPosition(1, laserAim.position);
             }
-        } 
+        }
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.CompareTag("Player"))
-    //    {
-    //        isPlayerInRange = true;
-    //        Debug.Log("Player enetered range"); 
-    //    }
-    //}
-
-    //private void OnTriggerExit(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        isPlayerInRange = false;
-    //        Debug.Log("Player exited range");
-    //    }
-    //}
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
