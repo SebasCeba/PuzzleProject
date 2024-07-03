@@ -5,6 +5,7 @@ using UnityEditor;
 using System;
 using System.IO;
 using System.Reflection;
+using UnityEngine.UIElements;
 
 [CustomEditor(typeof(Readme))]
 [InitializeOnLoad]
@@ -120,7 +121,7 @@ public class ReadmeEditor : Editor
         GUILayout.EndHorizontal();
     }
 
-    public override void OnInspectorGUI()
+  /*  public override void CreateInspectorGUI()
     {
         var readme = (Readme)target;
         Init();
@@ -153,6 +154,7 @@ public class ReadmeEditor : Editor
             RemoveTutorial();
         }
     }
+  */
 
     bool m_Initialized;
 

@@ -63,7 +63,7 @@ public class InputController : MonoBehaviour
         }
         if(jumpModule != null && Input.GetKeyDown(KeyCode.Space))
         {
-            jumpModule.Jump(); 
+            jumpModule.Jump();
         }
         if(movementModule != null)
         {

@@ -12,7 +12,7 @@ public class JumpModule : MonoBehaviour
     [SerializeField] private float moonGravityDuration;
 
     private float JumpForce;
-    private Vector3 velocity;
+    [SerializeField] private Vector3 velocity;
     private const float gravityAcceleration = -9.81f;
     private const float moonGravityAcceleration = -1.625f;
     private bool useMoonGravity = false;
@@ -24,8 +24,6 @@ public class JumpModule : MonoBehaviour
     void Update()
     {
         ApplyGravity();
-        Jump();
-
         if (Input.GetKeyDown(KeyCode.E))
         {
             StartCoroutine(MoonAbility(true)); 
@@ -33,7 +31,7 @@ public class JumpModule : MonoBehaviour
     }
     public void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+        if (IsGrounded())
         {
             velocity.y = JumpForce;
         }
@@ -58,6 +56,7 @@ public class JumpModule : MonoBehaviour
     }
     private bool IsGrounded()
     {
+        Debug.Log("is grounded");
         return Physics.CheckSphere(transform.position, 0.25f, floorLayer);
     }
     public IEnumerator MoonAbility(bool isMoonGravity)
