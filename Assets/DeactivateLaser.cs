@@ -6,17 +6,13 @@ using UnityEngine.Events;
 
 public class DeactivateLaser : MonoBehaviour
 {
-    [SerializeField] private GameObject laserTurret;
+    [SerializeField] private GameObject[] lasers;
 
-    private void OnTriggerEnter(Collider other)
+    public void DeactivateLasers()
     {
-        if(other.CompareTag("Player") == laserTurret)
+        foreach (GameObject laser in lasers)
         {
-            gameObject.SetActive(false);
-            laserTurret.SetActive(false);
-
-            Destroy(gameObject, 5f);
-            Destroy(laserTurret, 5f); 
+            laser.SetActive(false);
         }
     }
 }

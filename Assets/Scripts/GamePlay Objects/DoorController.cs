@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
+    //This will change depending on if it's opening or closing 
+    [SerializeField]
+    private AudioSource openDoor; 
     [SerializeField]
     private float moveDistance;
     [SerializeField]
@@ -25,6 +28,7 @@ public class DoorController : MonoBehaviour
         if(!needskey || (needskey && !isKeyCollected))
         {
             StartCoroutine(MoveDoor(targetPosition));
+            openDoor.Play();
         } 
     }
 

@@ -556,7 +556,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6849524501166089239}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!114 &7570372526421005337
 MonoBehaviour:
   m_ObjectHideFlags: 0

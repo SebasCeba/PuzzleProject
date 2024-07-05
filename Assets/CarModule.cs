@@ -57,7 +57,7 @@ public class CarModule : MonoBehaviour
     {
         if(transform.up.y < 0)
         {
-
+            StartCoroutine(FlipCar());  
         }
     }
 

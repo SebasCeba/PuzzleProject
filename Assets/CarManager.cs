@@ -9,8 +9,34 @@ public class CarManager : MonoBehaviour
     [SerializeField] private GameObject carPrefab;
     [SerializeField] private float carAbilityTimer;
 
+    [SerializeField] private float originalCarAbilityTimer; 
+
     public Vector3 rotationOffset;
 
+    private void Start()
+    {
+        originalCarAbilityTimer = carAbilityTimer; 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("CarRoom"))
+        {
+            //Change the timer when the player enters the carroom 
+            carAbilityTimer = 5;
+            Debug.Log("Entered CarRoom, car ability timer set to " + carAbilityTimer + " seconds."); 
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("CarRoom"))
+        {
+            //Hopefully reset the timer to it's originally timer
+            carAbilityTimer = originalCarAbilityTimer;
+            Debug.Log("Exited CarRoom, car ability timer reset to " + carAbilityTimer + " seconds."); 
+        }
+    }
     // Update is called once per frame
     void Update()
     {

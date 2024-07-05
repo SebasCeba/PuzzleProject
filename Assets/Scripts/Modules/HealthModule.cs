@@ -31,7 +31,7 @@ public class HealthModule : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Resethealth();
-        Debug.Log("Player has died");    
+        Debug.Log("Player has died");
     }
     public void Resethealth()
     {

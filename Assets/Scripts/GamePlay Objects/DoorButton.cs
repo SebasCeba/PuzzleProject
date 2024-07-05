@@ -6,8 +6,8 @@ using UnityEngine.Events;
 public class DoorButton : MonoBehaviour, IInteracterable 
 {
     [SerializeField] private UnityEvent OnInteracted;
+    [SerializeField] private AudioSource pressedButton;
     [SerializeField] private Material highlightedMaterial;
-    [SerializeField] private Animator animator;
 
     private MeshRenderer mesh; 
     private Material originalMaterial; 
@@ -45,6 +45,7 @@ public class DoorButton : MonoBehaviour, IInteracterable
     public void OnInteract(InteractModule interactModule)
     {
         OnInteracted.Invoke();
+        pressedButton.Play();
         Debug.Log("Are you gonna hit on me?"); 
     }
 }

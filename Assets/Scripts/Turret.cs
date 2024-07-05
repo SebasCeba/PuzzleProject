@@ -5,12 +5,13 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    //This turret script will just follow the player 
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Transform laserAim;
     [SerializeField] private Transform turretSight; 
     [SerializeField] private Transform AimTransform;
     [SerializeField] private bool shouldTargetPlayer = true;
-    [SerializeField] private LayerMask playerLayer; 
+    [SerializeField] private LayerMask playerLayer;
 
     public float range = 200;
     public int damage = 10; //Amount of damage to deal to the player 
