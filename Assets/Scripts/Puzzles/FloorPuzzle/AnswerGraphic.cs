@@ -8,13 +8,18 @@ public class AnswerGraphic : MonoBehaviour
     [SerializeField] private GameObject origin;
     private GameObject[][] allPanels;
     [SerializeField] private bool[][] answerKey = new bool[5][];
-    [SerializeField] private float spacing = 1f;
-   // [SerializeField] private float toTheRight;
+    [SerializeField] private float spacing;
     [SerializeField] private int gridSize;
     public UnityEvent RequestAnswerKey;
    
     private void Awake()
     {
+        
+        Mesh mesh = origin.GetComponent<MeshFilter>().sharedMesh;
+        Bounds bounds = mesh.bounds;
+        float boundsX = origin.transform.localScale.x * bounds.size.x;
+        spacing = boundsX;
+        
         Setup();
     }
     private void Setup()
@@ -33,11 +38,11 @@ public class AnswerGraphic : MonoBehaviour
                 Debug.Log("Answer Key " + i + " " + j + "initiatied");
                 if (j >= 1)
                 { 
-                    allPanels[i][j].transform.Translate(Vector3.right * spacing * j, Space.Self);
+                    allPanels[i][j].transform.Translate(new Vector3(0,0,-1) * spacing * j, Space.Self);
                 }
                 
             }
-            origin.transform.Translate(Vector3.down * spacing * i, Space.Self);
+            origin.transform.Translate(- origin.transform.up * spacing * i, Space.Self);
         }
         origin.SetActive(false);
     }

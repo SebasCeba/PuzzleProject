@@ -129,8 +129,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.017455097, y: 0.016765721, z: 0.004397581}
-  m_Center: {x: -0.00023477807, y: -0.00010189427, z: 0.001562921}
+  m_Size: {x: 0.017455097, y: 0.016765721, z: 0.006786856}
+  m_Center: {x: -0.00023477807, y: -0.00010189428, z: 0.0027575651}
 --- !u!114 &1959425647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,8 +143,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f02854ae3c82cb144b46b33ece2efe69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  row: 0
+  col: 0
   pressedDownYPosition: 0.06
   buttonPressed:
   - {fileID: 2100000, guid: 5cf50b24110d77e42955e604cd8fe802, type: 2}
   - {fileID: 2100000, guid: 5ccffb21468d24558bab0ed5090e7160, type: 2}
   mesh: {fileID: 3644094947146014626}
+  state: 0
+  ButtonPressed:
+    m_PersistentCalls:
+      m_Calls: []
