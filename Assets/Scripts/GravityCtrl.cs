@@ -33,8 +33,6 @@ public class GravityCtrl : MonoBehaviour
                 gravityUp = (transform.position - Gravity.transform.forward).normalized;
             }
 
-            //gravityUp = (transform.position - Gravity.transform.position).normalized;
-
             Vector3 localUp = transform.forward;
 
             Quaternion targetrotation = Quaternion.FromToRotation(localUp, gravityUp) * transform.rotation; 
@@ -42,8 +40,6 @@ public class GravityCtrl : MonoBehaviour
             transform.forward = Vector3.Lerp(transform.forward, gravityUp, RotationSpeed * Time.deltaTime);
 
             playerController.AddForce((-gravityUp * Gravity.Gravity) * playerController.mass); 
-            //Vector3 gravityForce = -gravityUp * Gravity.Gravity * gravityScale; 
-            //playerController.AddForce(gravityForce * Time.deltaTime); 
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 //This script should only get input from the input class 
 //andsend to our modules
@@ -75,6 +76,14 @@ public class InputController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true; 
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("FinalRoom"))
+        {
+            SceneManager.LoadSceneAsync(0); 
         }
     }
 }
