@@ -14,23 +14,31 @@ public class CountdownTimer : MonoBehaviour
     private int maxInSeconds;
     private float currentTime;
     public UnityEvent OnTimerReset;
+    private bool isCounting = false;
+    private StartPuzzle startTrigger;
 
     private void Start()
     {
         maxInSeconds = (minutes * 60) + seconds;
-        PrintTime(maxInSeconds);
-        currentTime = maxInSeconds;
+        if (startTrigger == null)
+        {
+            startTrigger = FindAnyObjectByType<StartPuzzle>();
+        }
+        startTrigger.StartTimer.AddListener(StartTimer);
+        
     }
     private void FixedUpdate()
     {
-        if (currentTime <= 0)
+        if (isCounting)
         {
-            ResetTimer();
+            if (currentTime <= 0)
+            {
+                ResetTimer();
+            }
+            currentTime -= Time.fixedDeltaTime;
+            PrintTime(Mathf.RoundToInt(currentTime));
         }
-        currentTime -= Time.fixedDeltaTime;
-        PrintTime(Mathf.RoundToInt(currentTime));
 
-       
     }
     private void PrintTime(int seconds)
     {
@@ -57,10 +65,14 @@ public class CountdownTimer : MonoBehaviour
             return (time.ToString());   
         }
     }
-    public void ResetTimer()
+    private void ResetTimer()
     {
         currentTime = maxInSeconds;
         OnTimerReset.Invoke();
     }
-
+    private void StartTimer()
+    {
+        isCounting = true;
+        ResetTimer();
+    }
 }

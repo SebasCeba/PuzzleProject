@@ -5,11 +5,12 @@ using UnityEngine.Events;
 
 public class FloorPuzzleAnswer : MonoBehaviour
 {
+    [SerializeField] KeyGenerator keyGenerator;
     private int rows = 5 , columns = 5;
     private bool[][] inputTable;
     private bool[][] answerKey;
     private GridRow[] gridRows;
-    public UnityEvent<bool[], bool[]> submit;
+    public UnityEvent<bool> submitAnswer;
   
 
     private void Awake()
@@ -17,6 +18,10 @@ public class FloorPuzzleAnswer : MonoBehaviour
         inputTable = new bool[rows][];
         answerKey = new bool[rows][];
         gridRows = GetComponentsInChildren<GridRow>();
+        if (keyGenerator == null )
+        {
+            keyGenerator = FindAnyObjectByType<KeyGenerator>();
+        }
     }
     private void Start()
     {
@@ -25,7 +30,8 @@ public class FloorPuzzleAnswer : MonoBehaviour
             inputTable[i] = new bool[columns];
             answerKey[i] = new bool[columns];
         }
-        GetAnswerKey();
+        SubscribeToButtons();
+        keyGenerator.NewKeyAvailable.AddListener(UpdateAnswerKey);
     }
     private void SubscribeToButtons()
     {
@@ -37,9 +43,10 @@ public class FloorPuzzleAnswer : MonoBehaviour
             }
         }
     }
-    private void GetAnswerKey()
+  
+    private void UpdateAnswerKey(bool[][] newKey)
     {
-
+        answerKey = newKey;
     }
     
     public bool CheckAnswer()

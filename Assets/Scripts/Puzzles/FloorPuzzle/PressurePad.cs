@@ -14,7 +14,10 @@ public class PressurePad : MonoBehaviour
 
     private void Awake()
     {
-        mesh = GetComponent<MeshRenderer>();
+        if (mesh == null)
+        {
+            mesh = GetComponent<MeshRenderer>();
+        }
     }
     private void OnTriggerEnter(Collider collider)
     {

@@ -28,7 +28,7 @@ public class PanelSpawner : MonoBehaviour
             panels[i] = new GameObject[5];
         }
 
-        trueMaterial = original.GetComponent<Material>();
+        trueMaterial = original.GetComponent<MeshRenderer>().material;
         Bounds bounds = meshFilter.sharedMesh.bounds;
         width = bounds.size.x * 2.1f * original.transform.localScale.x;
 
@@ -62,7 +62,11 @@ public class PanelSpawner : MonoBehaviour
             {
                 if (answerKey[i][j] == true)
                 {
-
+                    panels[i][j].GetComponent<MeshRenderer>().material = trueMaterial;
+                }
+                else
+                {
+                    panels[i][j].GetComponent <MeshRenderer>().material = falseMaterial;
                 }
 
             }
