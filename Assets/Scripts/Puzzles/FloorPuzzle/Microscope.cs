@@ -4,24 +4,55 @@ using UnityEngine;
 
 public class Microscope : MonoBehaviour , IInteracterable
 {
-    [SerializeField] private Camera microScopecam;
-    [SerializeField] private InputController player;
-    [SerializeField] private MovementModule microscope;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject blackBoxCam;
+    [SerializeField] private GameObject highlight;
+
+    
+    private void Awake()
+    {
+        if (player == null)
+        {
+            player = FindAnyObjectByType<InputController>().gameObject;
+        }
+        if (blackBoxCam == null)
+        {
+            blackBoxCam = FindAnyObjectByType<CameraMovementModule>().gameObject;
+        }
+        blackBoxCam.GetComponent<CameraMovementModule>().OnExitMicroscope.AddListener(PlayerCam);
+    }
     public void OnHoverEnter()
     {
-        throw new System.NotImplementedException();
+        highlight.SetActive(true);
     }
 
     public void OnHoverExit()
     {
-        throw new System.NotImplementedException();
+        highlight.SetActive(false);
     }
 
     public void OnInteract(InteractModule interactModule)
     {
-        player.cam = microScopecam;
-        player.movementModule = microscope;
+        BlackBoxCam();
     }
 
+    public void PlayerCam()
+    {
+        blackBoxCam.GetComponent<CameraMovementModule>().CanLook(false);
+        blackBoxCam.SetActive(false);
+        player.SetActive(true);
+        Camera temp = player.GetComponentInChildren<Camera>();
+        temp.enabled = true;
+     
+    }
+    public void BlackBoxCam()
+    {
+        player.SetActive(false);
+        blackBoxCam.SetActive(true);
+        Camera temp = blackBoxCam.GetComponentInChildren<Camera>();
+        temp.enabled = true;
+        blackBoxCam.GetComponent<CameraMovementModule>().CanLook(true);
+      
+    }
  
 }

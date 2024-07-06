@@ -1,21 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class KeyGenerator : MonoBehaviour
 {
     private bool[][] answerKey;
-    private AnswerGraphic answerGraphic;
+    public UnityEvent<bool[][]> NewKeyAvailable;
+    [SerializeField] private CountdownTimer timer;
     void Awake()
     {
-        if (answerGraphic == null)
+        if (timer == null)
         {
-            answerGraphic = FindAnyObjectByType<AnswerGraphic>();
+            timer = FindAnyObjectByType<CountdownTimer>();
         }
+        timer.OnTimerReset.AddListener(GenerateRandomKey);
         CreateBlankKey();
         GenerateRandomKey();
-        answerGraphic.RequestAnswerKey.AddListener(SendAnswerKey);
-            
+        
     }
 
     private void CreateBlankKey()
@@ -39,14 +41,10 @@ public class KeyGenerator : MonoBehaviour
                 answerKey[i][j] = (Random.value > 0.5f);
             }
         }
+        NewKeyAvailable.Invoke(answerKey);
     }
-   private void SendAnswerKey()
+   public bool[][] GetAnswerKey()
     {
-        if (answerGraphic == null)
-        {
-            Debug.Log("null graphic, searching now");
-            answerGraphic = FindAnyObjectByType<AnswerGraphic>();
-        }
-        answerGraphic.SetAnswerKey(answerKey);
+        return answerKey;
     }
 }
