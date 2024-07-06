@@ -78,7 +78,6 @@ public class InputController : MonoBehaviour
             Cursor.visible = true; 
         }
     }
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("FinalRoom"))

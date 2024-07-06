@@ -8,14 +8,15 @@ public class Turret : MonoBehaviour
     //This turret script will just follow the player 
     [SerializeField] private LineRenderer lineRenderer;
     [SerializeField] private Transform laserAim;
-    [SerializeField] private Transform turretSight; 
-    [SerializeField] private Transform AimTransform;
+    [SerializeField] private Transform turretSight;
+    [SerializeField] private Transform AimTransform; //Player's transform 
     [SerializeField] private bool shouldTargetPlayer = true;
     [SerializeField] private LayerMask playerLayer;
 
     public float range = 200;
     public int damage = 10; //Amount of damage to deal to the player 
     public float damageInterval = 1f; //Creates an interval between each damage 
+
     private float lastDamageTime;
     private bool isPlayerInRange = true; 
 
@@ -43,9 +44,10 @@ public class Turret : MonoBehaviour
 
             if(distanceToPlayer <= range)
             {
+                //This updates the laserAim to follow the player's position 
                 laserAim.LookAt(AimTransform);
 
-                ray = new(laserAim.position, laserAim.forward);
+                ray = new Ray(laserAim.position, laserAim.forward);
 
                 if (Physics.Raycast(ray, out rayHit, range, playerLayer))
                 {

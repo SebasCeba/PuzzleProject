@@ -6,7 +6,10 @@ using UnityEngine.Events;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField] float enemyHealth, maxHealth;
-    public UnityEvent OnTurretDestoryed; 
+    public UnityEvent OnTurretDestoryed;
+
+    private HealthModule playerHealth;
+    public int damage = 10;
 
     private void Start()
     {

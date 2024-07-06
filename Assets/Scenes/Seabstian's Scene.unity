@@ -815,6 +815,7 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
 --- !u!65 &61583070
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -828,6 +829,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.98949426, z: 1}
   m_Center: {x: -0.0000018922597, y: 0.0052504563, z: 0}
+--- !u!4 &61583076 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1365687297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &105760009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,6 +1062,14 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 842328698}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 1661679313}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
@@ -1270,6 +1285,14 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 281063464}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 1755632395}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
@@ -1352,6 +1375,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4516059180850962343, guid: f4821819cebac3344849d4e2df5b0e84,
     type: 3}
   m_PrefabInstance: {fileID: 2789085508496615952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &165743874 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1365687297}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &166241450
 PrefabInstance:
@@ -1456,7 +1485,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 162170984}
+    m_TransformParent: {fileID: 1526454896}
     m_Modifications:
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: range
@@ -1464,7 +1493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: damage
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: turretSight
@@ -1474,6 +1503,19 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 1004178821}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 1883217729}
+    - target: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7101542590515295681, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_TagString
@@ -1482,7 +1524,7 @@ PrefabInstance:
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
@@ -2058,6 +2100,7 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
 --- !u!65 &281063463
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2071,6 +2114,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Center: {x: 0.000015258789, y: 0, z: 0}
+--- !u!4 &281063464 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 155564872}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &290167297
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,7 +2191,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 162170984}
-  m_RootOrder: 16
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &298677520
 MonoBehaviour:
@@ -2235,6 +2284,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309808153}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &313115544 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 614956927}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &338739742 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1906265650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &340603519
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,6 +2393,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 340603519}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &341322394 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1110699879}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &351923644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2704,7 +2771,7 @@ PrefabInstance:
     - target: {fileID: 414467783152547227, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
       propertyPath: damage
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 620175206509483460, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
@@ -2719,7 +2786,7 @@ PrefabInstance:
     - target: {fileID: 640773737976066203, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
       propertyPath: damage
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 850745389412858283, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
@@ -2759,7 +2826,7 @@ PrefabInstance:
     - target: {fileID: 2354557154477061870, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
       propertyPath: damage
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2376897623394242707, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
@@ -2774,7 +2841,7 @@ PrefabInstance:
     - target: {fileID: 2392340325372461772, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
       propertyPath: damage
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2453673597965536138, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
@@ -2799,7 +2866,7 @@ PrefabInstance:
     - target: {fileID: 2751405284532830378, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
       propertyPath: damage
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2785289585566640569, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
@@ -2824,7 +2891,7 @@ PrefabInstance:
     - target: {fileID: 3193845937670847214, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
       propertyPath: damage
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3421106364761058531, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
@@ -2850,6 +2917,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 8.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 3873285645193960501, guid: beec617da51bd5d43867264511ef7c4f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3898888598648706086, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
@@ -2894,7 +2966,7 @@ PrefabInstance:
     - target: {fileID: 4734956427988409864, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
       propertyPath: damage
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5095816074957800296, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
@@ -2999,7 +3071,7 @@ PrefabInstance:
     - target: {fileID: 6985151248807864070, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
       propertyPath: damage
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7100085869607615978, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
@@ -3014,7 +3086,7 @@ PrefabInstance:
     - target: {fileID: 7122612968465254708, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
       propertyPath: damage
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7174743525276172079, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
@@ -3024,7 +3096,7 @@ PrefabInstance:
     - target: {fileID: 7174743525276172079, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
       propertyPath: damage
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7407949941364677576, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
@@ -3034,7 +3106,7 @@ PrefabInstance:
     - target: {fileID: 7407949941364677576, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
       propertyPath: damage
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7447961074965957932, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
@@ -3104,7 +3176,7 @@ PrefabInstance:
     - target: {fileID: 7880511836362205365, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
       propertyPath: damage
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7962383505479310498, guid: beec617da51bd5d43867264511ef7c4f,
         type: 3}
@@ -3254,6 +3326,13 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
+--- !u!4 &385066244 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 614956927}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &394932345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3385,6 +3464,7 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
 --- !u!65 &407051443
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3398,6 +3478,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.93158096, z: 1}
   m_Center: {x: -0.0000018922597, y: 0.034205776, z: 0}
+--- !u!4 &407051449 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1110699879}
+  m_PrefabAsset: {fileID: 0}
 --- !u!195 &427162272 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 427162272, guid: e78d35a87eaff3e4ca5959b5ba8b8dc5,
@@ -3945,6 +4031,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 524333509}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &540451065 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1110699879}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &552924614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
@@ -4167,6 +4259,7 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
 --- !u!65 &573968136
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4180,6 +4273,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &573968137 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1601180333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &578436540
 GameObject:
   m_ObjectHideFlags: 0
@@ -5061,7 +5160,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 162170984}
+    m_TransformParent: {fileID: 1526454896}
     m_Modifications:
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: range
@@ -5069,7 +5168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: damage
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: turretSight
@@ -5079,6 +5178,14 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 385066244}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 760731860}
     - target: {fileID: 7101542590515295681, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_TagString
@@ -5087,7 +5194,7 @@ PrefabInstance:
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
@@ -5209,6 +5316,13 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
+--- !u!4 &637282180 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1168107553}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &638668916
 GameObject:
   m_ObjectHideFlags: 0
@@ -5263,6 +5377,14 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 1340432820}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 1435646513}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
@@ -5365,7 +5487,7 @@ PrefabInstance:
     - target: {fileID: 8681058038695614848, guid: 4f36f299d9257e543ae1d56661bad8b8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 18
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8681058038695614848, guid: 4f36f299d9257e543ae1d56661bad8b8,
         type: 3}
@@ -6616,6 +6738,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755494578}
   m_CullTransparentMesh: 1
+--- !u!4 &760731860 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 614956927}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &761058343 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1365687297}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &766106451 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8382604664903695139, guid: 9012e9b0fbc103e4fad14a08f471b42a,
@@ -6814,6 +6948,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7693654873883960109, guid: df517994ca29b9941a06fcefa9d85fa0, type: 3}
+--- !u!4 &787511844 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 891183130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &788174255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7380,6 +7520,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 810289663}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &817167589 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290727291}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &823607979
 GameObject:
   m_ObjectHideFlags: 0
@@ -7657,6 +7803,7 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
 --- !u!65 &842328697
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7670,6 +7817,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Center: {x: 0.000015258789, y: 0, z: 0}
+--- !u!4 &842328698 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 139028888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &846242885
 GameObject:
   m_ObjectHideFlags: 0
@@ -7945,6 +8098,7 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
 --- !u!65 &869829625
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7958,6 +8112,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.00000011920929, z: 0}
+--- !u!4 &869829626 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1089294185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &870181120
 GameObject:
   m_ObjectHideFlags: 0
@@ -8340,7 +8500,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 162170984}
+    m_TransformParent: {fileID: 1526454896}
     m_Modifications:
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: range
@@ -8348,7 +8508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: damage
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: turretSight
@@ -8358,6 +8518,14 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 1092198250}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 1031363955}
     - target: {fileID: 7101542590515295681, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_TagString
@@ -8366,7 +8534,7 @@ PrefabInstance:
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
@@ -9207,6 +9375,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 155564872}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &970720363 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1109528498}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &972210590
 GameObject:
   m_ObjectHideFlags: 0
@@ -9603,6 +9777,13 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
+--- !u!4 &1004178821 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 175170379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1005269070 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5196096084857655200, guid: beec617da51bd5d43867264511ef7c4f,
@@ -9729,6 +9910,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f36f299d9257e543ae1d56661bad8b8, type: 3}
+--- !u!4 &1031363955 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 891183130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1068777049 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6720260248275180808, guid: beec617da51bd5d43867264511ef7c4f,
@@ -9950,6 +10137,14 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 869829626}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 1391674710}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
@@ -10035,6 +10230,7 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
 --- !u!65 &1092198244
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10048,6 +10244,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.83949775, z: 1}
   m_Center: {x: -0.0000018922597, y: 0.080243595, z: 0}
+--- !u!4 &1092198250 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 891183130}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1097752052
 GameObject:
   m_ObjectHideFlags: 0
@@ -10185,6 +10387,14 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 1234438053}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 970720363}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
@@ -10353,7 +10563,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 162170984}
+    m_TransformParent: {fileID: 1526454896}
     m_Modifications:
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: range
@@ -10361,7 +10571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: damage
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: turretSight
@@ -10371,6 +10581,14 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 407051449}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 540451065}
     - target: {fileID: 7101542590515295681, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_TagString
@@ -10379,7 +10597,7 @@ PrefabInstance:
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
@@ -10476,6 +10694,7 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
 --- !u!65 &1112017291
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10489,6 +10708,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1112017292 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1709229888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1113485462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2019636619252872457, guid: f77314fb4a15bab4489ef0d795f218f3,
@@ -10590,6 +10815,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f36f299d9257e543ae1d56661bad8b8, type: 3}
+--- !u!4 &1130824597 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1709229888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1135290222 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 847180578409718330, guid: e78d35a87eaff3e4ca5959b5ba8b8dc5,
@@ -11011,7 +11242,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 162170984}
+    m_TransformParent: {fileID: 1526454896}
     m_Modifications:
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: range
@@ -11019,7 +11250,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: damage
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: turretSight
@@ -11029,6 +11260,14 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 637282180}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 1865807696}
     - target: {fileID: 7101542590515295681, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_TagString
@@ -11037,7 +11276,7 @@ PrefabInstance:
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
@@ -11831,6 +12070,7 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
 --- !u!65 &1234438052
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11844,6 +12084,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.00000011920929, z: 0}
+--- !u!4 &1234438053 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1109528498}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1236009781 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2019636619252872457, guid: f77314fb4a15bab4489ef0d795f218f3,
@@ -12224,7 +12470,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 162170984}
+    m_TransformParent: {fileID: 1526454896}
     m_Modifications:
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: range
@@ -12232,7 +12478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: damage
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: turretSight
@@ -12242,6 +12488,14 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 1573249872}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 817167589}
     - target: {fileID: 7101542590515295681, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_TagString
@@ -12250,7 +12504,7 @@ PrefabInstance:
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
@@ -12415,6 +12669,7 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
 --- !u!65 &1340432819
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12428,6 +12683,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Center: {x: 0, y: 0, z: -0.0000038146973}
+--- !u!4 &1340432820 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 640053173}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1344266547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12685,6 +12946,11 @@ PrefabInstance:
       objectReference: {fileID: 427162272}
     - target: {fileID: 8382604664655969943, guid: 9012e9b0fbc103e4fad14a08f471b42a,
         type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382604664655969943, guid: 9012e9b0fbc103e4fad14a08f471b42a,
+        type: 3}
       propertyPath: OnPlayerDeath.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -12726,7 +12992,7 @@ PrefabInstance:
     - target: {fileID: 8382604664655969951, guid: 9012e9b0fbc103e4fad14a08f471b42a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.3
+      value: 2.13
       objectReference: {fileID: 0}
     - target: {fileID: 8382604664655969951, guid: 9012e9b0fbc103e4fad14a08f471b42a,
         type: 3}
@@ -12736,7 +13002,7 @@ PrefabInstance:
     - target: {fileID: 8382604664655969951, guid: 9012e9b0fbc103e4fad14a08f471b42a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -463.1
+      value: -462.5
       objectReference: {fileID: 0}
     - target: {fileID: 8382604664655969951, guid: 9012e9b0fbc103e4fad14a08f471b42a,
         type: 3}
@@ -12771,6 +13037,16 @@ PrefabInstance:
     - target: {fileID: 8382604664655969951, guid: 9012e9b0fbc103e4fad14a08f471b42a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382604664816497751, guid: 9012e9b0fbc103e4fad14a08f471b42a,
+        type: 3}
+      propertyPath: m_text
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8382604665917482672, guid: 9012e9b0fbc103e4fad14a08f471b42a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8382604665917482675, guid: 9012e9b0fbc103e4fad14a08f471b42a,
@@ -12895,7 +13171,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 162170984}
+    m_TransformParent: {fileID: 1526454896}
     m_Modifications:
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: range
@@ -12903,7 +13179,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: damage
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: turretSight
@@ -12913,6 +13189,14 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 61583076}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 165743874}
     - target: {fileID: 7101542590515295681, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_TagString
@@ -12921,7 +13205,7 @@ PrefabInstance:
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
@@ -13124,6 +13408,26 @@ Transform:
   m_Father: {fileID: 1270218275}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1375830974 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3584861705648255984, guid: f4821819cebac3344849d4e2df5b0e84,
+    type: 3}
+  m_PrefabInstance: {fileID: 2789085508496615952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1375830978
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1375830974}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7693654873883960109, guid: df517994ca29b9941a06fcefa9d85fa0, type: 3}
 --- !u!1 &1378167464
 GameObject:
   m_ObjectHideFlags: 0
@@ -13155,6 +13459,12 @@ Transform:
   m_Father: {fileID: 873730119}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1391674710 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1089294185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1391961396
 GameObject:
   m_ObjectHideFlags: 0
@@ -13416,6 +13726,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 383502493}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1435646513 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 640053173}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1447449119 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
@@ -13458,6 +13774,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
     type: 3}
   m_PrefabInstance: {fileID: 1089294185}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1454541415 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 175170379}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1460708802
 PrefabInstance:
@@ -13962,6 +14284,45 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1906265650}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1526454895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1526454896}
+  m_Layer: 0
+  m_Name: EnemiesToKill
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1526454896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526454895}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1454541415}
+  - {fileID: 1915199153}
+  - {fileID: 313115544}
+  - {fileID: 1888529575}
+  - {fileID: 341322394}
+  - {fileID: 2140580797}
+  - {fileID: 787511844}
+  - {fileID: 761058343}
+  m_Father: {fileID: 162170984}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1526933713
 GameObject:
   m_ObjectHideFlags: 0
@@ -14200,7 +14561,6 @@ GameObject:
   - component: {fileID: 1545141735}
   - component: {fileID: 1545141734}
   - component: {fileID: 1545141736}
-  - component: {fileID: 1545141737}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -14255,24 +14615,6 @@ MonoBehaviour:
   carAbilityTimer: 25
   originalCarAbilityTimer: 5
   rotationOffset: {x: 0, y: 0, z: 0}
---- !u!114 &1545141737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1545141733}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02442758d57efdd4cabff0c55cdab0b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnUnityLevelStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUnityLevelEnds:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &1554453225
 GameObject:
   m_ObjectHideFlags: 0
@@ -14514,6 +14856,7 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
 --- !u!65 &1573249866
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14527,6 +14870,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.9909015, z: 1}
   m_Center: {x: -0.0000018922597, y: 0.0045449347, z: 0}
+--- !u!4 &1573249872 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290727291}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1583216171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14778,7 +15127,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 162170984}
+    m_TransformParent: {fileID: 1526454896}
     m_Modifications:
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: range
@@ -14786,7 +15135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: damage
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
       propertyPath: turretSight
@@ -14796,6 +15145,14 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 1717427417}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 1815992638}
     - target: {fileID: 7101542590515295681, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_TagString
@@ -14804,7 +15161,7 @@ PrefabInstance:
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
@@ -14901,6 +15258,14 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 573968137}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 1637700854}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
@@ -15190,7 +15555,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 162170984}
-  m_RootOrder: 17
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1621703007
 GameObject:
@@ -15354,6 +15719,12 @@ Transform:
   m_Father: {fileID: 1460708803}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1637700854 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1601180333}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1639308655
 GameObject:
   m_ObjectHideFlags: 0
@@ -15579,6 +15950,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d61155c5d866648a6a49d6842f3281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1661679313 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 139028888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1687140799
 GameObject:
   m_ObjectHideFlags: 0
@@ -15892,6 +16269,14 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 1112017292}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 1130824597}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
@@ -16103,6 +16488,19 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
+--- !u!4 &1717427417 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1599724545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1755632395 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 155564872}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1756910127
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17064,6 +17462,7 @@ MonoBehaviour:
   OnTurretDestoryed:
     m_PersistentCalls:
       m_Calls: []
+  damage: 10
 --- !u!65 &1807101665
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -17077,6 +17476,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Center: {x: 0.000015258789, y: 0, z: 0}
+--- !u!4 &1807101666 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2191602136134998076, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1906265650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1815992638 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1599724545}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1823963824 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5301120609199573562, guid: 8eead6da0f39af14da40d5f2642e430b,
@@ -17300,7 +17711,7 @@ PrefabInstance:
     - target: {fileID: 5400340214995865604, guid: e8d1decf94b6f52428a17504a5093f94,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.45
+      value: 6.22
       objectReference: {fileID: 0}
     - target: {fileID: 5400340214995865604, guid: e8d1decf94b6f52428a17504a5093f94,
         type: 3}
@@ -17339,6 +17750,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8d1decf94b6f52428a17504a5093f94, type: 3}
+--- !u!4 &1865807696 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1168107553}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1866113841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17503,6 +17920,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868167755}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1883217729 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2580235169751678586, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 175170379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1885077431
 GameObject:
   m_ObjectHideFlags: 0
@@ -17572,6 +17995,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885077431}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1888529575 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1168107553}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1906265650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17595,6 +18024,14 @@ PrefabInstance:
       propertyPath: AimTransform
       value: 
       objectReference: {fileID: 1374318296}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: headOfTurret
+      value: 
+      objectReference: {fileID: 1807101666}
+    - target: {fileID: 1578321731, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+      propertyPath: laserPointer
+      value: 
+      objectReference: {fileID: 338739742}
     - target: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
         type: 3}
       propertyPath: m_RootOrder
@@ -17672,6 +18109,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f77314fb4a15bab4489ef0d795f218f3, type: 3}
+--- !u!4 &1915199153 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1599724545}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1926735866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18559,6 +19002,12 @@ Transform:
   m_Father: {fileID: 898556054}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2140580797 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8759818718164097501, guid: f77314fb4a15bab4489ef0d795f218f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1290727291}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2144203829
 GameObject:
   m_ObjectHideFlags: 0
@@ -19204,5 +19653,49 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4728479745353542043, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 6572873823367861838, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 5187877326773460572, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 8354925904954010116, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 436185111878881783, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 4049861354458093027, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7505150693433508564, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 6501093833976705441, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 4021843872553880501, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 4457995099886721382, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 8703269027682333184, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 3923687537448730139, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 2941210987353254558, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 3884355122611827205, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 209664322429207213, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 8717991522755553642, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 1936896818531384431, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 6420990059961536624, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 8326412510270929019, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 2863558860507038213, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734855103852005, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734855291298898, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734856068552487, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734856265672219, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734855169731058, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734854497291894, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734854417658394, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734854886922163, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734855047255159, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734854543281986, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734855040806470, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734856157221971, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734855099194702, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734854791900363, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734855640328833, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734854379753406, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734854610234009, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734855351147225, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734856158039554, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734855907250500, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734854891201434, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734854997217990, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734854575797895, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
+    - {fileID: 7298734854438785100, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2df24622e716da8428bbcebff912a48f, type: 3}
