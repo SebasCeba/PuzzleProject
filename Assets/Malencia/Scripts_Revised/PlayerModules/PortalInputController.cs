@@ -15,6 +15,7 @@ public class PortalInputController : MonoBehaviour
     [SerializeField] private PortalJumpModule jumpModule;
     [SerializeField] private PortalInteractModule interactModule;
     [SerializeField] private PortalRestartModule restartModule;
+    [SerializeField] private bool _cutsceneIsPlaying;
 
     private bool jumping;
     private bool canLookAround = true;
@@ -63,12 +64,20 @@ public class PortalInputController : MonoBehaviour
     }
     private void OnRestart(InputAction.CallbackContext context)
     {
-        restartModule.RestartLevel();
+        if(restartModule != null && !_cutsceneIsPlaying)
+        {
+            restartModule.RestartLevel();
+        }
+        
     }
 
     private void OnPortalOrange(InputAction.CallbackContext context)
     {
-        shootingModule.PortalGunPink();
+        if (shootingModule != null && !_cutsceneIsPlaying)
+        {
+            shootingModule.PortalGunPink();
+        }
+         
     }
 
     private void OnInteract(InputAction.CallbackContext context)
@@ -83,17 +92,25 @@ public class PortalInputController : MonoBehaviour
 
     private void OnPortalBlue(InputAction.CallbackContext context)
     {
-        shootingModule.PortalGunBlue();
+        if (shootingModule != null && !_cutsceneIsPlaying)
+        {
+            shootingModule.PortalGunBlue();
+        }
+            
     }
 
     private void OnLaser(InputAction.CallbackContext context)
     {
-        shootingModule.LaserPointer();
+        if(shootingModule != null && !_cutsceneIsPlaying)
+        {
+            shootingModule.LaserPointer();
+        }
+        
     }
 
     private void OnJump(InputAction.CallbackContext context)
     {
-        if (jumpModule != null)
+        if (jumpModule != null && !_cutsceneIsPlaying)
         {
             jumpModule.Jump();
         }
@@ -125,11 +142,21 @@ public class PortalInputController : MonoBehaviour
             aimDirection.y = -inputAim.y * mouseSensitivity;
         }
 
-        if (movementModule != null)
+        if (movementModule != null && !_cutsceneIsPlaying)
         {
             movementModule.MoveCharacter(moveDirection);
             movementModule.RotateCharacter(aimDirection);
         }
+    }
+
+    public void LockThePlayer()
+    {
+        _cutsceneIsPlaying = true;
+    }
+
+    public void UnlockThePlayer()
+    {
+        _cutsceneIsPlaying=false;
     }
 
 }

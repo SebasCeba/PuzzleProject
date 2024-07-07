@@ -104,8 +104,8 @@ public class BlueObject : WarpObjects
             {
                 Debug.Log("Blue was placed");
             }
-
             gameObject.SetActive(false);
+            //Destroy(gameObject);
         }
     }
 

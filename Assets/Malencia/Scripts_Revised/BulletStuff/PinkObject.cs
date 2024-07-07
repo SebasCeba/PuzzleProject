@@ -97,8 +97,8 @@ public class PinkObject : WarpObjects
             {
                 Debug.Log("Pink was placed");
             }
-
-            gameObject.SetActive(false);
+            gameObject.SetActive(true); 
+            //Destroy(gameObject);
         }
     }
 
