@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PortalUI : MonoBehaviour
 {
@@ -43,6 +44,6 @@ public class PortalUI : MonoBehaviour
             yield return null;   
         }
 
-        //SceneManager.LoadScene(sceneToLoadIndex);
+        SceneManager.LoadScene("CenterRoom");
     }
 }
