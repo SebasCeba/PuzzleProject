@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6523f956caccb684a96055ece548393c, type: 3}
   m_Name: Portal1
   m_EditorClassIdentifier: 
-  _isActive: 1
-  _sceneName: 
+  _isActive: 0
+  _sceneName: MalenciaPuzzle
