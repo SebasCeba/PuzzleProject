@@ -16933,7 +16933,7 @@ GameObject:
   - component: {fileID: 1795342684}
   - component: {fileID: 1795342683}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: SceneExitTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
