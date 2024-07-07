@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MalenciaPuzzle.unity
     guid: c7cced63e411a0843aae68bc5a542317
+  - enabled: 1
+    path: Assets/Scenes/Ren.unity
+    guid: d466ac6655802014485a43230d796dbd
   m_configObjects: {}
