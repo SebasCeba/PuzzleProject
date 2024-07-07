@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,14 +9,14 @@ public class SubmitButton : BasicButton
 {
     [Header("Button Visuals")]
 
-    [SerializeField] private int numberOfFlashes;
-    [SerializeField] private float holdRed;
-    [SerializeField] private float holdOriginal;
-    [SerializeField] private Material red;
-    [SerializeField] private Material green;
+    [SerializeField] protected int numberOfFlashes;
+    [SerializeField] protected float holdRed;
+    [SerializeField] protected float holdOriginal;
+    [SerializeField] protected Material red;
+    [SerializeField] protected Material green;
 
-    private Material[] wrongAnswer;
-    private Material[] canOpen;
+    protected Material[] wrongAnswer;
+    protected Material[] canOpen;
     public UnityEvent<bool> TryUnlock;
     [SerializeField] private FloorPuzzleAnswer checkAnswer;
     [SerializeField] private CountdownTimer timer;
@@ -29,6 +30,12 @@ public class SubmitButton : BasicButton
         {
             timer = FindAnyObjectByType<CountdownTimer>();
         }
+        wrongAnswer = mesh.materials;
+        wrongAnswer[1] = red;
+        Debug.Log(wrongAnswer.Count());
+        canOpen = mesh.materials;
+        canOpen[1] = green;
+        Debug.Log(canOpen.Count());
     }
     public override void OnInteract(InteractModule interactModule)
     {

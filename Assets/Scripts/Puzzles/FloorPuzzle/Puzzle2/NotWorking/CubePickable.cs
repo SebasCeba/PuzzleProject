@@ -6,10 +6,11 @@ public class CubePickable : MonoBehaviour, IInteracterable
 {
     [SerializeField] private Rigidbody _rb;
     private Transform point;
-    private bool pickedUp;
+    [SerializeField] private bool pickedUp;
     private Material originalColour;
     private Material baseMaterial;
     [SerializeField] private Material highlightedColour;
+    [SerializeField] private CubeSpawner spawner;
     private void Start()
     {
         Material[] materials = GetComponentInChildren<MeshRenderer>().materials;
@@ -23,7 +24,7 @@ public class CubePickable : MonoBehaviour, IInteracterable
     public void OnHoverEnter()
     {
         GetComponentInChildren<MeshRenderer>().materials = new Material[] { baseMaterial, highlightedColour };
-        
+
     }
 
     public void OnHoverExit()
@@ -33,7 +34,7 @@ public class CubePickable : MonoBehaviour, IInteracterable
 
     public void OnInteract(InteractModule interactModule)
     {
-        if (transform.parent == null)
+        if (transform.parent == null || transform.parent == spawner)
         {
             //We are going to pick up the cube 
 
@@ -43,8 +44,8 @@ public class CubePickable : MonoBehaviour, IInteracterable
             transform.position = point.position;
             transform.rotation = point.rotation;
 
-            pickedUp = true;
             transform.SetParent(point);
+            pickedUp = true;
         }
     }
 
@@ -52,7 +53,7 @@ public class CubePickable : MonoBehaviour, IInteracterable
     {
         _rb.useGravity = true;
         _rb.isKinematic = false;
-        pickedUp = false;   
+        pickedUp = false;
         transform.SetParent(null);
     }
     void Update()
@@ -64,6 +65,11 @@ public class CubePickable : MonoBehaviour, IInteracterable
                 Drop();
             }
         }
+    }
+
+    public void LinkToPool(CubeSpawner owner)
+    {
+        spawner = owner;
     }
 }
 

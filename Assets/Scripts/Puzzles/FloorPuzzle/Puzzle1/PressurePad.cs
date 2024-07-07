@@ -17,7 +17,7 @@ public class PressurePad : MonoBehaviour
     protected Vector3 originalPosition;
     protected Vector3 downPosition;
 
-    private void Awake()
+    protected void Awake()
     {
         if (mesh == null)
         {
@@ -38,6 +38,7 @@ public class PressurePad : MonoBehaviour
         originalPosition = transform.position;
         downPosition = transform.position -= new Vector3(0, pressedDownYPosition, 0);
     }
+
     protected virtual void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.CompareTag("Player") && state == false)
@@ -49,7 +50,7 @@ public class PressurePad : MonoBehaviour
         }
     }
     
-    private void ResetPad()
+    protected void ResetPad()
     {
         state = false;
         mesh.materials = buttonUp;
