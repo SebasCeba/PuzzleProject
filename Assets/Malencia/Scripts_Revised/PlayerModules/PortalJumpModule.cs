@@ -36,7 +36,7 @@ public class PortalJumpModule : MonoBehaviour
         }
         else if (_velocity.y < 0)
         {
-            _velocity.y = -.5f;
+            _velocity.y = -2f;
         }
         controller.Move(_velocity * Time.deltaTime);
     }
