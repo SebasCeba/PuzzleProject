@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - MoonRoom
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - Projectile
   - Enemy Vision
   - PuzzleRoom
-  - 
-  - 
+  - PortalSetLayer
+  - ActualPortal
   - 
   - 
   - 

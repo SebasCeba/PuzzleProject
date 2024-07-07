@@ -1,4 +1,4 @@
-﻿Shader "Portals/Outline"
+Shader "Portals/Outline"
 {
     Properties
     {

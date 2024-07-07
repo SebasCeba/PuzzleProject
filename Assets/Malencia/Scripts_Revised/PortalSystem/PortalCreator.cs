@@ -11,9 +11,10 @@ public class PortalCreator : MonoBehaviour
     private Vector3[] _ellipsePoints = new Vector3[0];
 
     [Header("Mesh Components")]
-    [SerializeField] private Material thisPortalInnerColor;
+    //[SerializeField] private Material thisPortalInnerColor;
     private MeshFilter meshFilter;
     private MeshRenderer meshRenderer;
+    [SerializeField] private Material thisPortalInnerColor;
 
     [Header("Mesh Parts-Vert,tris,norm,uv")]
     [SerializeField] private Vector3[] portalVertices = new Vector3[0];
