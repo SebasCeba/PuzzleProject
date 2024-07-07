@@ -2543,7 +2543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07131251, y: 0.39100003}
   m_AnchorMax: {x: 0.9474585, y: 0.61700004}
-  m_AnchoredPosition: {x: -0.00012207031, y: 1.0579987}
+  m_AnchoredPosition: {x: -0.00012207031, y: 1.0579834}
   m_SizeDelta: {x: 0.00024414, y: -125.658}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &566385843
@@ -3182,8 +3182,8 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1480125117}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        - m_Target: {fileID: 1480125119}
+          m_TargetAssemblyTypeName: Tmp.GameManager, Assembly-CSharp
           m_MethodName: LockplayerInput
           m_Mode: 1
           m_Arguments:
@@ -3196,8 +3196,8 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1480125117}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        - m_Target: {fileID: 1480125119}
+          m_TargetAssemblyTypeName: Tmp.GameManager, Assembly-CSharp
           m_MethodName: UnlockplayerInput
           m_Mode: 1
           m_Arguments:
@@ -4366,8 +4366,8 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1480125117}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        - m_Target: {fileID: 1480125119}
+          m_TargetAssemblyTypeName: Tmp.GameManager, Assembly-CSharp
           m_MethodName: LockplayerInput
           m_Mode: 1
           m_Arguments:
@@ -4380,8 +4380,8 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1480125117}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        - m_Target: {fileID: 1480125119}
+          m_TargetAssemblyTypeName: Tmp.GameManager, Assembly-CSharp
           m_MethodName: UnlockplayerInput
           m_Mode: 1
           m_Arguments:
@@ -4586,8 +4586,8 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1480125117}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        - m_Target: {fileID: 1480125119}
+          m_TargetAssemblyTypeName: Tmp.GameManager, Assembly-CSharp
           m_MethodName: LockplayerInput
           m_Mode: 1
           m_Arguments:
@@ -4600,8 +4600,8 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1480125117}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        - m_Target: {fileID: 1480125119}
+          m_TargetAssemblyTypeName: Tmp.GameManager, Assembly-CSharp
           m_MethodName: UnlockplayerInput
           m_Mode: 1
           m_Arguments:
@@ -6680,7 +6680,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1480125118}
-  - component: {fileID: 1480125117}
+  - component: {fileID: 1480125119}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6688,21 +6688,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1480125117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1480125116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02442758d57efdd4cabff0c55cdab0b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerInput: {fileID: 1583779303}
-  _gameSettings: {fileID: 11400000, guid: 745545c529b4be64e9427b9f139b62ed, type: 2}
-  _allPortals: {fileID: 11400000, guid: 615b8da2db6770e45a6d0d5c1cf40457, type: 2}
 --- !u!4 &1480125118
 Transform:
   m_ObjectHideFlags: 0
@@ -6718,6 +6703,21 @@ Transform:
   m_Father: {fileID: 530299140}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1480125119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1480125116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e07437e828126449a876bef57ea7b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerInput: {fileID: 1583779308}
+  _gameSettings: {fileID: 11400000, guid: 745545c529b4be64e9427b9f139b62ed, type: 2}
+  _allPortals: {fileID: 11400000, guid: 615b8da2db6770e45a6d0d5c1cf40457, type: 2}
 --- !u!1 &1501784107 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3870257676299390625, guid: 78b674259044f40379c89a058cfc87fb,
@@ -7180,7 +7180,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1583779301}
   - component: {fileID: 1583779299}
-  - component: {fileID: 1583779303}
+  - component: {fileID: 1583779308}
   - component: {fileID: 1583779304}
   - component: {fileID: 1583779305}
   - component: {fileID: 1583779306}
@@ -7228,25 +7228,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 93.571, z: 0}
---- !u!114 &1583779303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1583779298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f83566b8ffdee04a87d57c5f0752a35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 330585545}
-  mouseSense: 150
-  shootingModule: {fileID: 1583779304}
-  movementModule: {fileID: 1583779307}
-  jumpModule: {fileID: 1583779306}
-  interactModule: {fileID: 1583779305}
-  healthModule: {fileID: 1583779309}
 --- !u!114 &1583779304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7314,6 +7295,25 @@ MonoBehaviour:
   controller: {fileID: 1583779299}
   moveSpeed: 10
   headUpDown: {fileID: 330585546}
+--- !u!114 &1583779308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583779298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c70abf503463384cae97827178d81a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 330585545}
+  mouseSense: 150
+  shootingModule: {fileID: 1583779304}
+  movementModule: {fileID: 1583779307}
+  jumpModule: {fileID: 1583779306}
+  interactModule: {fileID: 1583779305}
+  healthModule: {fileID: 1583779309}
 --- !u!114 &1583779309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7323,7 +7323,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1583779298}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d24b19f915a6f6642813bc9ad4196a8c, type: 3}
+  m_Script: {fileID: 11500000, guid: 12cf824ef1b6fd54da8440c5869ca998, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
@@ -7333,9 +7333,9 @@ MonoBehaviour:
   OnCharacterDied:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5409620028866960996}
-        m_TargetAssemblyTypeName: Pickable, Assembly-CSharp
-        m_MethodName: Drop
+      - m_Target: {fileID: 1480125119}
+        m_TargetAssemblyTypeName: Tmp.GameManager, Assembly-CSharp
+        m_MethodName: OnPlayerDied
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7346,7 +7346,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 674918864}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: Tmp.UIManager, Assembly-CSharp
         m_MethodName: ResetHealthUI
         m_Mode: 1
         m_Arguments:
@@ -7357,9 +7357,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1480125117}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: OnPlayerDied
+      - m_Target: {fileID: 5409620028866960996}
+        m_TargetAssemblyTypeName: Pickable, Assembly-CSharp
+        m_MethodName: Drop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7553,8 +7553,8 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1480125117}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        - m_Target: {fileID: 1480125119}
+          m_TargetAssemblyTypeName: Tmp.GameManager, Assembly-CSharp
           m_MethodName: LockplayerInput
           m_Mode: 1
           m_Arguments:
@@ -7567,8 +7567,8 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1480125117}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        - m_Target: {fileID: 1480125119}
+          m_TargetAssemblyTypeName: Tmp.GameManager, Assembly-CSharp
           m_MethodName: UnlockplayerInput
           m_Mode: 1
           m_Arguments:
@@ -7864,7 +7864,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1213051210}
-  _healthModule: {fileID: 1939704723}
+  _healthModule: {fileID: 1939704725}
 --- !u!1 &1701363774
 GameObject:
   m_ObjectHideFlags: 0
@@ -9104,7 +9104,7 @@ GameObject:
   - component: {fileID: 1939704724}
   - component: {fileID: 1939704721}
   - component: {fileID: 1939704720}
-  - component: {fileID: 1939704723}
+  - component: {fileID: 1939704725}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -9202,25 +9202,6 @@ CapsuleCollider:
   m_Height: 2.3875084
   m_Direction: 1
   m_Center: {x: 0.076806426, y: 1.5310075, z: -0.063816726}
---- !u!114 &1939704723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1939704718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d24b19f915a6f6642813bc9ad4196a8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 10
-  OnUnityEventHealthChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCharacterDied:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!54 &1939704724
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9237,6 +9218,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1939704725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939704718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12cf824ef1b6fd54da8440c5869ca998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  OnUnityEventHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCharacterDied:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1951220611 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3870257676299390625, guid: 78b674259044f40379c89a058cfc87fb,
@@ -9339,8 +9339,8 @@ MonoBehaviour:
   EvtOnCheckpointReached:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1480125117}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1480125119}
+        m_TargetAssemblyTypeName: Tmp.GameManager, Assembly-CSharp
         m_MethodName: SetCheckpoint
         m_Mode: 0
         m_Arguments:
@@ -9714,8 +9714,8 @@ MonoBehaviour:
     m_Events:
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1480125117}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        - m_Target: {fileID: 1480125119}
+          m_TargetAssemblyTypeName: Tmp.GameManager, Assembly-CSharp
           m_MethodName: LockplayerInput
           m_Mode: 1
           m_Arguments:
@@ -9728,8 +9728,8 @@ MonoBehaviour:
           m_CallState: 2
     - m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1480125117}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        - m_Target: {fileID: 1480125119}
+          m_TargetAssemblyTypeName: Tmp.GameManager, Assembly-CSharp
           m_MethodName: UnlockplayerInput
           m_Mode: 1
           m_Arguments:
