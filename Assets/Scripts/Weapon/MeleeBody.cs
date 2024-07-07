@@ -10,7 +10,7 @@ public class MeleeBody : MonoBehaviour
     {
         if (other.gameObject.tag == _melee.TargetTag && _melee.CanAttack)
         {
-            other.gameObject.GetComponent<HealthModule>().DeductHealth(_melee.Damage);
+            other.gameObject.GetComponent<Tmp.HealthModule>().DeductHealth(_melee.Damage);
         }
     }
 }

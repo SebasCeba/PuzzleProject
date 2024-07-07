@@ -11,7 +11,7 @@ public class AttackBullet : MonoBehaviour
     {
         if (collision.gameObject.tag == _targetTag)
         {
-            collision.gameObject.GetComponent<HealthModule>().DeductHealth(_damage);
+            collision.gameObject.GetComponent<Tmp.HealthModule>().DeductHealth(_damage);
         }
         //gameObject.SetActive(false);
     }

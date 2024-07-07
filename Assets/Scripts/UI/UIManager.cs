@@ -3,20 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class UIManager : MonoBehaviour
+namespace Tmp
 {
-    [Header("Health UI")]
-    [SerializeField] private HealthModule _playerHealthModule;
-    [SerializeField] private TextMeshProUGUI _healthText;
-
-    private void Start()
+    public class UIManager : MonoBehaviour
     {
-        _playerHealthModule.OnUnityEventHealthChanged.AddListener(UpdateHealthUI);
-        UpdateHealthUI(_playerHealthModule.GetMaxHealth());
-    }
+        [Header("Health UI")]
+        [SerializeField] private HealthModule _playerHealthModule;
+        [SerializeField] private HealthBar _healthBar;
 
-    private void UpdateHealthUI(int health)
-    {
-        _healthText.text = "Health : " + health.ToString();
+        private void Start()
+        {
+            _playerHealthModule.OnUnityEventHealthChanged.AddListener(UpdateHealthUI);
+            ResetHealthUI();
+        }
+
+        public void ResetHealthUI()
+        {
+            UpdateHealthUI(_playerHealthModule.GetMaxHealth());
+        }
+
+        private void UpdateHealthUI(int health)
+        {
+            //_healthText.text = "Health : " + health.ToString();
+            _healthBar.SetHealthBar(health);
+        }
     }
 }
