@@ -11,6 +11,7 @@ public class ShootingModule : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private Rigidbody Bullet;
     [SerializeField] private Transform shootingPoint;
+    [SerializeField] private float bulletSpeed = 10f; 
 
     public void Shoot()
     {
@@ -21,7 +22,7 @@ public class ShootingModule : MonoBehaviour
         
         bulletInstantiate.position = shootingPoint.position;
         bulletInstantiate.rotation = shootingPoint.rotation;
-        bulletInstantiate.AddForce(10f * shootingPoint.forward, ForceMode.Impulse);
+        bulletInstantiate.AddForce(bulletSpeed * shootingPoint.forward, ForceMode.Impulse);
         //Destroy bullets 
         tempPooled.ResetBackToPool(2f);
     }

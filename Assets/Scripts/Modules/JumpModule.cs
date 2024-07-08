@@ -6,18 +6,18 @@ public class JumpModule : MonoBehaviour
 {
     //We referencing the controller on the gameobject player 
     [SerializeField] CharacterController controller;
-    [SerializeField] private float JumpForce;
     [SerializeField] private LayerMask floorLayer;
+    [SerializeField] private float earthJumpForce = 5f;
+    [SerializeField] private float moonJumpForce;
+    [SerializeField] private float moonGravityDuration;
+    [SerializeField] private float increasedMoonJumpForce; 
 
+    private float JumpForce;
     private Vector3 velocity;
     public const float gravityAcceleration = -9.81f;
-    private float earthJumpForce = 5f; 
-
-    //Attempting to change the gravity of the player 
-    public const float moonGravityAcceleration = -1.625f;
-    [SerializeField] private float moonJumpForce;
-    [SerializeField] private float moonGravityDuration; 
+    public const float moonGravityAcceleration = -1.625f;    
     private bool useMoonGravity = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,15 +30,9 @@ public class JumpModule : MonoBehaviour
         ApplyGravity();
         Jump();
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             StartCoroutine(MoonAbility(true)); 
-            //MoonApplyGravity(true);
-        }
-        else
-        {
-            StopAllCoroutines(); 
-            //MoonApplyGravity(false);
         }
     }
     public void Jump()
@@ -72,25 +66,29 @@ public class JumpModule : MonoBehaviour
         
         controller.Move(velocity * Time.deltaTime);
     }
-
+    //The gravity ability is here so if you need to change anything it would be here. So when making modules, cut everything here and below. 
     private void MoonApplyGravity(bool isMoonGravity)
     {
         useMoonGravity = isMoonGravity;
-        JumpForce = isMoonGravity ? moonJumpForce : earthJumpForce; 
+        JumpForce = isMoonGravity ? moonJumpForce : earthJumpForce;
     }
-
+    //This boolen was ruining the code and now the code is feeling a lot better 
     public IEnumerator MoonAbility(bool isMoonGravity)
     {
         useMoonGravity = isMoonGravity;
-        JumpForce = isMoonGravity ? moonJumpForce : earthJumpForce;
-        yield return new WaitForSeconds(moonGravityDuration); 
+        JumpForce = isMoonGravity ? moonJumpForce : earthJumpForce; 
+        yield return new WaitForSeconds(moonGravityDuration);
+        useMoonGravity = false;
+        JumpForce = earthJumpForce; 
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        //Use tags whenever you want to shift the gravity of the player
         if(other.CompareTag("MoonRoom"))
         {
-            MoonApplyGravity(true); 
+            MoonApplyGravity(true);
+            JumpForce = increasedMoonJumpForce;
         }
     }
     private void OnTriggerExit(Collider other)

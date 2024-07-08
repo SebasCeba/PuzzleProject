@@ -6,8 +6,8 @@ using UnityEngine.Events;
 public class DoorButton : MonoBehaviour, IInteracterable 
 {
     [SerializeField] private UnityEvent OnInteracted;
+    [SerializeField] private AudioSource pressedButton;
     [SerializeField] private Material highlightedMaterial;
-    [SerializeField] private Animator animator;
 
     private MeshRenderer mesh; 
     private Material originalMaterial; 
@@ -15,23 +15,37 @@ public class DoorButton : MonoBehaviour, IInteracterable
     private void Awake()
     {
         mesh = GetComponent<MeshRenderer>();
-        originalMaterial = mesh.material; 
+        if (mesh.materials.Length > 1)
+        {
+            originalMaterial = mesh.materials[1];
+        }
     }
     public void OnHoverEnter()
     {
-        mesh.material = highlightedMaterial;    
+        if (mesh.materials.Length > 1)
+        {
+            Material[] materials = mesh.materials;
+            materials[1] = highlightedMaterial;
+            mesh.materials = materials;
+        }
         Debug.Log("Why are you looking at me?"); 
     }
 
     public void OnHoverExit()
     {
-        mesh.material = originalMaterial; 
+        if(mesh.materials.Length > 1)
+        {
+            Material[] materials = mesh.materials;
+            materials[1] = originalMaterial; 
+            mesh.materials = materials;
+        } 
         Debug.Log("Please come back! I want you to look at me! "); 
     }
 
     public void OnInteract(InteractModule interactModule)
     {
         OnInteracted.Invoke();
+        pressedButton.Play();
         Debug.Log("Are you gonna hit on me?"); 
     }
 }
