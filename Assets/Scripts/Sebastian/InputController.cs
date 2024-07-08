@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 //This script should only get input from the input class 
 //andsend to our modules
+namespace Sebastian
+{
 public class InputController : MonoBehaviour
 {
     [Header("Camera & Sensitivity")]
@@ -85,4 +87,5 @@ public class InputController : MonoBehaviour
             SceneManager.LoadSceneAsync(0); 
         }
     }
+}
 }
