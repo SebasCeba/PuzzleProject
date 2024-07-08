@@ -24,7 +24,8 @@ public class Portal : MonoBehaviour
     public bool IsPlaced { get; private set; } = false;
     private Collider wallCollider;
 
-    //[SerializeField] private 
+    [SerializeField] private AudioSource _yesPortal;
+    [SerializeField] private AudioSource _noPortal;
 
     // Components.
     public Renderer Renderer { get; private set; }
@@ -96,9 +97,12 @@ public class Portal : MonoBehaviour
 
             gameObject.SetActive(true);
             IsPlaced = true;
+            _yesPortal.Play();
+
             return true;
         }
 
+        _noPortal.Play();
         return false;
     }
 
