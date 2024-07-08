@@ -13,7 +13,7 @@ public class Microscope : MonoBehaviour , IInteracterable
     {
         if (player == null)
         {
-            player = FindAnyObjectByType<InputController>().gameObject;
+            player = FindAnyObjectByType<Ren.InputController>().gameObject;
         }
         if (blackBoxCam == null)
         {
