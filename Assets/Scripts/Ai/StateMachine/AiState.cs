@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class AiState
+namespace AI
 {
-    protected AIController controller; 
-    public AiState(AIController contr)
+    public abstract class AiState
     {
-        controller = contr;
-    }
+        protected AIController controller;
+        public AiState(AIController contr)
+        {
+            controller = contr;
+        }
 
-    public abstract void OnStateEnter(); 
-    public abstract void OnStateRun();
-    public abstract void OnStateExit(); 
+        public abstract void OnStateEnter();
+        public abstract void OnStateRun();
+        public abstract void OnStateExit();
+    }
 }

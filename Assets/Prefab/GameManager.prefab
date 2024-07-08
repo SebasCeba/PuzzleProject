@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7115556954480859382
+--- !u!1 &4950360877166111537
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1588412666529313367}
-  - component: {fileID: 1719908216713088652}
+  - component: {fileID: 4950360877166111539}
+  - component: {fileID: 4950360877166111538}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -17,36 +17,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1588412666529313367
+--- !u!4 &4950360877166111539
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7115556954480859382}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.482044, y: 1.9994154, z: 47.558247}
+  m_GameObject: {fileID: 4950360877166111537}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.5482256, y: -4.8630276, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1719908216713088652
+--- !u!114 &4950360877166111538
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7115556954480859382}
+  m_GameObject: {fileID: 4950360877166111537}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02442758d57efdd4cabff0c55cdab0b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e07437e828126449a876bef57ea7b6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnUnityLevelStart:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUnityLevelEnds:
-    m_PersistentCalls:
-      m_Calls: []
+  _playerInput: {fileID: 0}
+  _gameSettings: {fileID: 11400000, guid: 745545c529b4be64e9427b9f139b62ed, type: 2}
+  _allPortals: {fileID: 11400000, guid: 615b8da2db6770e45a6d0d5c1cf40457, type: 2}

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ren.unity
     guid: d466ac6655802014485a43230d796dbd
+  - enabled: 1
+    path: Assets/Scenes/Seabstian's Scene.unity
+    guid: 6ea9005e7a2015949834fe9af2d04ac3
   m_configObjects: {}
