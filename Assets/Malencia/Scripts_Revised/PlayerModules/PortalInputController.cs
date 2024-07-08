@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PortalInputController : MonoBehaviour
 {
@@ -32,6 +33,15 @@ public class PortalInputController : MonoBehaviour
     private InputAction laserPointerAction;
     private InputAction interactAction;
     private InputAction restartLevelAction;
+    private InputAction stopCutscene;
+    [SerializeField] private GameObject cutscene;
+    [SerializeField] private TextMeshProUGUI text1;
+    [SerializeField] private TextMeshProUGUI text2;
+    [SerializeField] private TextMeshProUGUI text3;
+    [SerializeField] private TextMeshProUGUI text4;
+    [SerializeField] private TextMeshProUGUI tex51;
+    [SerializeField] private TextMeshProUGUI skiptext;
+
 
     private void Awake()
     {
@@ -46,6 +56,7 @@ public class PortalInputController : MonoBehaviour
         portalGunPink = InputSystemActions.FindActionMap("Player").FindAction("PortalGunPink");
         interactAction = InputSystemActions.FindActionMap("Player").FindAction("Interact");
         restartLevelAction = InputSystemActions.FindActionMap("Player").FindAction("RestartPuzzle");
+        stopCutscene = InputSystemActions.FindActionMap("Player").FindAction("SkipCutscene");
 
         //subscribe to the necessary actions
         jumpAction.performed += OnJump;
@@ -55,6 +66,7 @@ public class PortalInputController : MonoBehaviour
         laserPointerAction.canceled += OffLaser;
         interactAction.performed += OnInteract;
         restartLevelAction.performed += OnRestart;
+        stopCutscene.performed += SkipCutscene;
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -70,6 +82,19 @@ public class PortalInputController : MonoBehaviour
             restartModule.RestartLevel();
         }
         
+    }
+
+    private void SkipCutscene(InputAction.CallbackContext context)
+    {
+        cutscene.SetActive(false);
+        text1.text = null;
+        text2.text = null;
+        text3.text = null;
+        text4.text = null;
+        tex51.text = null;
+        skiptext.text = null;
+        _cutsceneIsPlaying = false;
+
     }
 
     private void OnPortalOrange(InputAction.CallbackContext context)
