@@ -95,7 +95,7 @@ public class CameraForPortalsController : MonoBehaviour
         Vector4 clipPlaneCameraSpace =
             Matrix4x4.Transpose(Matrix4x4.Inverse(_portalCamera.worldToCameraMatrix)) * clipPlaneWorldSpace;
 
-        var newMatrix = _mainCamera.CalculateObliqueMatrix(clipPlaneCameraSpace);
+        Matrix4x4 newMatrix = _mainCamera.CalculateObliqueMatrix(clipPlaneCameraSpace);
         _portalCamera.projectionMatrix = newMatrix;
 
         // Render the camera to its render target.

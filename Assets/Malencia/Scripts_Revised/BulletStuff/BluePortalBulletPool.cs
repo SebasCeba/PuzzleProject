@@ -11,6 +11,7 @@ public class BluePortalBulletPool : MonoBehaviour
     [SerializeField] private PortalPool bluePool;
     [SerializeField] private PortalMovementModule PortalMovementModule;
     [SerializeField] private PortalGameManager PortalGameManager;
+    [SerializeField] private AudioSource AudioSource;
 
     private void Awake()
     {
@@ -19,6 +20,7 @@ public class BluePortalBulletPool : MonoBehaviour
             BlueObject tempObject = Instantiate(originalObject, transform);
             tempObject.LinkToPool(this);
             tempObject.LinkToPortalGameManager(PortalGameManager);
+            tempObject.LinkToAudioSource(AudioSource);
             //tempObject.LinkToPortalPool(bluePool);
             tempObject.GetRotation(PortalMovementModule);
             tempObject.gameObject.SetActive(false);
@@ -32,6 +34,7 @@ public class BluePortalBulletPool : MonoBehaviour
         BlueObject tempObject = Instantiate(originalObject, transform);
         tempObject.LinkToPool(this);
         tempObject.LinkToPortalGameManager(PortalGameManager);
+        tempObject.LinkToAudioSource(AudioSource);
         //tempObject.LinkToPortalPool(bluePool);
         tempObject.GetRotation(PortalMovementModule);
         tempObject.gameObject.SetActive(false);

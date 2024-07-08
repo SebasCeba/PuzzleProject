@@ -11,8 +11,6 @@ public class PinkObject : WarpObjects
     private float timerToReset;
     private bool reseting;
     private const int pinkID = 0;
-    private int portalSetLayer;
-    private int portalLayer;
     [SerializeField] private PortalGameManager _portalManager;
     [SerializeField] private PortalPool pinkPool;
     [SerializeField] private PortalMovementModule _portalMovementModule;
@@ -20,11 +18,19 @@ public class PinkObject : WarpObjects
 
     [SerializeField] private PortalGameManager PortalGameManager;
 
+    [Header("Audi0")]
+    [SerializeField] private AudioClip noPortal;
+    [SerializeField] private AudioClip yesPortal;
+    [SerializeField] private AudioSource PortalSource;
+
     public void LinkToPortalGameManager(PortalGameManager portalManager)
     {
         PortalGameManager = portalManager;
     }
-
+    public void LinkToAudioSource(AudioSource source)
+    {
+        source = PortalSource;
+    }
 
     public void LinkToPool(PinkPortalBulletPool owner)
     {
@@ -41,64 +47,53 @@ public class PinkObject : WarpObjects
         _portalMovementModule = module;
     }
 
-    private void Start()
-    {
-        int portalSetLayer = LayerMask.NameToLayer("SetPortalLayer");
-        int portalLayer = LayerMask.NameToLayer("Portal");
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
-        //if (collision.gameObject.layer == 11)
-        //{
-        //    Portal thisPortal = collision.gameObject.GetComponent<Portal>();
-
-        //    if (thisPortal == null)
-        //    {
-        //        return;
-        //    }
-
-        //    Teleport();
-        //}
+        //Make sure the portal is only being created on the appropriate layer
         if (collision.gameObject.layer == 10)
         {
-            //Vector3 location = collision.GetContact(0).point;
-            //Vector3 normal = collision.GetContact(0).normal;
-            //pinkPool.PortalLocation(location, normal);
-
-            //bool PlacementSuccessful = _portalManager.GetPortal(pinkID).IsPlaced;
-
-            //if (PlacementSuccessful)
-            //{
-
-            //}
-
-
-            var cameraRotation = _portalMovementModule.transform.rotation;
-            var portalRight = cameraRotation * Vector3.right;
+            //you need to determine the direction to set the portal via the player's current direction
+            Quaternion cameraRotation = _portalMovementModule.transform.rotation;
+            Vector3 portalRight = cameraRotation * Vector3.right;
 
             if (Mathf.Abs(portalRight.x) >= Mathf.Abs(portalRight.z))
             {
-                portalRight = (portalRight.x >= 0) ? Vector3.right : -Vector3.right;
+                if(portalRight.x >= 0)
+                {
+                    portalRight = Vector3.right;
+                } else
+                {
+                    portalRight = -Vector3.right;
+                }
             }
             else
             {
-                portalRight = (portalRight.z >= 0) ? Vector3.forward : -Vector3.forward;
+                if(portalRight.z >= 0)
+                {
+                    portalRight = Vector3.forward;
+                } else
+                {
+                    portalRight = -Vector3.forward;
+                }
             }
 
-            var portalForward = -collision.GetContact(0).normal;
-            var portalUp = -Vector3.Cross(portalRight, portalForward);
+            Vector3 portalForward = -collision.GetContact(0).normal;
+            Vector3 portalUp = -Vector3.Cross(portalRight, portalForward);
 
-            var portalRotation = Quaternion.LookRotation(portalForward, portalUp);
+            Quaternion portalRotation = Quaternion.LookRotation(portalForward, portalUp);
 
             // Attempt to place the portal.
             bool wasPlaced = PortalGameManager.GetPortal(pinkID).PlacePortal(collision.collider, collision.GetContact(0).point, portalRotation);
             if(wasPlaced)
             {
-                Debug.Log("Pink was placed");
+                //PortalSource.clip = yesPortal;
+               // PortalSource.Play();
+            } else
+            {
+                //PortalSource.clip = noPortal;
+               // PortalSource.Play(); ;
             }
-            gameObject.SetActive(false); 
-            //Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

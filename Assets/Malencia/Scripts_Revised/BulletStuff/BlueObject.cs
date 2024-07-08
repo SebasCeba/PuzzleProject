@@ -20,9 +20,19 @@ public class BlueObject : WarpObjects
 
     [SerializeField] private PortalGameManager PortalGameManager;
 
+    [Header("Audi0")]
+    [SerializeField] private AudioClip noPortal;
+    [SerializeField] private AudioClip yesPortal;
+    [SerializeField] private AudioSource PortalSource;
+
     public void LinkToPortalGameManager(PortalGameManager portalManager)
     {
         PortalGameManager = portalManager;
+    }
+
+    public void LinkToAudioSource(AudioSource source)
+    {
+        source = PortalSource;
     }
 
 
@@ -51,61 +61,57 @@ public class BlueObject : WarpObjects
 
     private void OnCollisionEnter(Collision collision)
     {
-        //if(collision.gameObject.layer == 11)
-        //{
-        //    Portal thisPortal = collision.gameObject.GetComponent<Portal>();
-
-        //    if(thisPortal == null)
-        //    {
-        //        return;
-        //    }
-
-        //    Teleport();
-        //}
+        //Make sure the portal is only being created on the appropriate layer
         if(collision.gameObject.layer == 10)
         {
-            //Vector3 location = collision.GetContact(0).point;
-            //Vector3 normal = collision.GetContact(0).normal;
-            //bluePool.PortalLocation(location, normal);
-
-            //bool PlacementSuccessful = _portalManager.GetPortal(blueID).IsPlaced;
-
-            //if(PlacementSuccessful)
-            //{
-
-            //}
-
-
             // Orient the portal according to camera look direction and surface direction.
-            var cameraRotation = _portalMovementModule.transform.rotation;
-            var portalRight = cameraRotation * Vector3.right;
+            Quaternion cameraRotation = _portalMovementModule.transform.rotation;
+            Vector3 portalRight = cameraRotation * Vector3.right;
 
             if (Mathf.Abs(portalRight.x) >= Mathf.Abs(portalRight.z))
             {
-                portalRight = (portalRight.x >= 0) ? Vector3.right : -Vector3.right;
+                if (portalRight.x >= 0)
+                {
+                    portalRight = Vector3.right;
+                }
+                else
+                {
+                    portalRight = -Vector3.right;
+                }
             }
             else
             {
-                portalRight = (portalRight.z >= 0) ? Vector3.forward : -Vector3.forward;
+                if (portalRight.z >= 0)
+                {
+                    portalRight = Vector3.forward;
+                }
+                else
+                {
+                    portalRight = -Vector3.forward;
+                }
             }
 
-            var portalForward = -collision.GetContact(0).normal;
-            var portalUp = -Vector3.Cross(portalRight, portalForward);
+            Vector3 portalForward = -collision.GetContact(0).normal;
+            Vector3 portalUp = -Vector3.Cross(portalRight, portalForward);
 
-            var portalRotation = Quaternion.LookRotation(portalForward, portalUp);
+            Quaternion portalRotation = Quaternion.LookRotation(portalForward, portalUp);
 
             Vector3 normposition = collision.GetContact(0).normal;
             Vector3 position = collision.GetContact(0).point;
 
             // Attempt to place the portal.
             bool wasPlaced = PortalGameManager.GetPortal(blueID).PlacePortal(collision.collider, position, portalRotation);
-                
-            if(wasPlaced)
+            if (wasPlaced)
             {
-                Debug.Log("Blue was placed");
+               // PortalSource.clip = yesPortal;
+               // PortalSource.Play();
+            }
+            else
+            {
+               // PortalSource.clip = noPortal;
+                //PortalSource.Play();
             }
             gameObject.SetActive(false);
-            //Destroy(gameObject);
         }
     }
 

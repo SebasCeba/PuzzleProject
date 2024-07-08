@@ -10,6 +10,7 @@ public class PinkPortalBulletPool : MonoBehaviour
     [SerializeField] private PortalPool pinkPool;
     [SerializeField] private PortalMovementModule PortalMovementModule;
     [SerializeField] private PortalGameManager PortalGameManager;
+    [SerializeField] private AudioSource audioSource;
 
     private void Awake()
     {
@@ -18,6 +19,7 @@ public class PinkPortalBulletPool : MonoBehaviour
             PinkObject tempObject = Instantiate(originalObject, transform);
             tempObject.LinkToPool(this);
             tempObject.LinkToPortalGameManager(PortalGameManager);
+            tempObject.LinkToAudioSource(audioSource);
             //tempObject.LinkToPortalPool(pinkPool);
             tempObject.GetRotation(PortalMovementModule);
             tempObject.gameObject.SetActive(false);
@@ -31,6 +33,7 @@ public class PinkPortalBulletPool : MonoBehaviour
         PinkObject tempObject = Instantiate(originalObject, transform);
         tempObject.LinkToPool(this);
         tempObject.LinkToPortalGameManager(PortalGameManager);
+        //tempObject.LinkToAudioSource(audioSource);
         //tempObject.LinkToPortalPool(pinkPool);
         tempObject.GetRotation(PortalMovementModule);
         tempObject.gameObject.SetActive(false);

@@ -37,7 +37,7 @@ public class PortalInputController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
 
-        //Assign and subscribe Input Actions
+        //Assign Input Action values to the variables
         moveAction = InputSystemActions.FindActionMap("Player").FindAction("Move");
         jumpAction = InputSystemActions.FindActionMap("Player").FindAction("Jump");
         rotateAction = InputSystemActions.FindActionMap("Player").FindAction("Rotate");
@@ -47,6 +47,7 @@ public class PortalInputController : MonoBehaviour
         interactAction = InputSystemActions.FindActionMap("Player").FindAction("Interact");
         restartLevelAction = InputSystemActions.FindActionMap("Player").FindAction("RestartPuzzle");
 
+        //subscribe to the necessary actions
         jumpAction.performed += OnJump;
         portalGunBlue.performed += OnPortalBlue;
         laserPointerAction.performed += OnLaser;
@@ -57,7 +58,7 @@ public class PortalInputController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.layer == 12)
+        if(restartModule != null && collision.gameObject.layer == 12)
         {
             restartModule.RestartLevel();
         }
@@ -124,6 +125,14 @@ public class PortalInputController : MonoBehaviour
     private void OnDisable()
     {
         InputSystemActions.FindActionMap("Player").Disable();
+        //unsubscribe to prevent memory leaks
+        jumpAction.performed -= OnJump;
+        portalGunBlue.performed -= OnPortalBlue;
+        laserPointerAction.performed -= OnLaser;
+        portalGunPink.performed -= OnPortalOrange;
+        laserPointerAction.canceled -= OffLaser;
+        interactAction.performed -= OnInteract;
+        restartLevelAction.performed -= OnRestart;
     }
 
     private void Update()
