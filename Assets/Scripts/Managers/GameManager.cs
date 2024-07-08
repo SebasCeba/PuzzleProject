@@ -1,59 +1,76 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Events;
-using System; 
+using UnityEngine;
+using System.Collections;
 
-public class GameManager : MonoBehaviour
+namespace Tmp
 {
-    public static GameManager Singleton {  get; private set; }
-
-    public UnityEvent OnUnityLevelStart = new UnityEvent();
-    public Action OnActionLevelStart; 
-
-    public UnityEvent OnUnityLevelEnds = new UnityEvent();
-    public Action OnActionLevelEnds;
-
-    private InputController player; 
-    private void Awake()
+    public class GameManager : MonoBehaviour
     {
-        if(Singleton == null)
+        public static GameManager Instance;
+
+        [SerializeField] private InputController _playerInput;
+
+        [SerializeField] private GameSettingsSO _gameSettings;
+        [SerializeField] private AllPortalsSO _allPortals;
+
+        private Checkpoint _checkpoint;
+
+        private void Awake()
         {
-            Singleton = this;
-            DontDestroyOnLoad(gameObject);
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
+            if (_gameSettings != null && !_gameSettings.isInitialized)
+            {
+                _allPortals.SetAllActive();
+                _gameSettings.isInitialized = true;
+            }
         }
-        else
+
+        public void SetCheckpoint(Checkpoint checkpoint)
         {
-            Destroy(gameObject); 
+            _checkpoint = checkpoint;
         }
-    }
-    private void Start()
-    {
-        StartLevel();
-    }
-    public void StartLevel() //StartLevel needs to be called every time a scene transition happens 
-    {
-        player = FindObjectOfType<InputController>();
 
-        //Start Countdown
-        OnUnityLevelStart?.Invoke();
-        OnActionLevelStart?.Invoke(); 
-    }
-    public void FinishLevel()
-    {
-        OnUnityLevelEnds?.Invoke(); 
-        OnActionLevelEnds?.Invoke();
-    }
-    public void PlayerDied()
-    {
+        public void OnPlayerDied()
+        {
+            StartCoroutine(Co_RespawnPlayer());
+        }
 
-    }
-    public void LockPlayerInput()
-    {
-        player.enabled = false;
-    }
-    public void UnlockPlayerInput()
-    {
-        player.enabled = true;
+        IEnumerator Co_RespawnPlayer()
+        {
+            _playerInput.GetComponent<CharacterController>().enabled = false;
+            _playerInput.transform.position = _checkpoint.transform.position;
+            _playerInput.transform.rotation = _checkpoint.transform.rotation;
+            yield return null;
+            _playerInput.GetComponent<CharacterController>().enabled = true;
+        }
+
+        public void LockplayerInput()
+        {
+            _playerInput.enabled = false;
+        }
+
+        public void UnlockplayerInput()
+        {
+            _playerInput.enabled = true;
+        }
+
+        public void Quit()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+        // If running in a built application, quit the application
+        Application.Quit();
+#endif
+        }
     }
 }
