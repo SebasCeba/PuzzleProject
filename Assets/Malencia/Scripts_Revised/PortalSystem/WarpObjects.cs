@@ -17,8 +17,8 @@ public class WarpObjects : MonoBehaviour
     private static readonly Quaternion halfTurn = Quaternion.Euler(0.0f, 180.0f, 0.0f);
     public virtual void Teleport()
     {
-        var inTransform = inPortal.transform;
-        var outTransform = outPortal.transform;
+        Transform inTransform = inPortal.transform;
+        Transform outTransform = outPortal.transform;
 
         // Update position of object.
         Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);
@@ -36,7 +36,7 @@ public class WarpObjects : MonoBehaviour
         rigidbody.velocity = outTransform.TransformDirection(relativeVel);
 
         // Swap portal references.
-        var tmp = inPortal;
+        Portal tmp = inPortal;
         inPortal = outPortal;
         outPortal = tmp;
     }
@@ -45,8 +45,8 @@ public class WarpObjects : MonoBehaviour
     {
         cloneObject = new GameObject();
         cloneObject.SetActive(false);
-        var meshFilter = cloneObject.AddComponent<MeshFilter>();
-        var meshRenderer = cloneObject.AddComponent<MeshRenderer>();
+        MeshFilter meshFilter = cloneObject.AddComponent<MeshFilter>();
+        MeshRenderer meshRenderer = cloneObject.AddComponent<MeshRenderer>();
 
         meshFilter.mesh = GetComponent<MeshFilter>().mesh;
         meshRenderer.materials = GetComponent<MeshRenderer>().materials;
@@ -66,8 +66,8 @@ public class WarpObjects : MonoBehaviour
         {
             if (cloneObject.activeSelf && inPortal.IsPlaced && outPortal.IsPlaced)
             {
-                var inTransform = inPortal.transform;
-                var outTransform = outPortal.transform;
+                Transform inTransform = inPortal.transform;
+                Transform outTransform = outPortal.transform;
 
                 // Update position of clone.
                 Vector3 relativePos = inTransform.InverseTransformPoint(transform.position);
