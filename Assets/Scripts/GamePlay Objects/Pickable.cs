@@ -33,15 +33,14 @@ public class Pickable : MonoBehaviour, IInteracterable
         }
         else
         {
-            _rb.useGravity = true;
-            _rb.isKinematic = false;
-            transform.SetParent(null);
+            Drop();
         }
-        //Drop(); 
     }
 
-    private void Drop()
+    public void Drop()
     {
-
+        _rb.useGravity = true;
+        _rb.isKinematic = false;
+        transform.SetParent(null);
     }
 }
