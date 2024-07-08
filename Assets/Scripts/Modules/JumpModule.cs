@@ -7,40 +7,50 @@ public class JumpModule : MonoBehaviour
     //We referencing the controller on the gameobject player 
     [SerializeField] CharacterController controller;
     [SerializeField] private LayerMask floorLayer;
-    [SerializeField] private float moonJumpForce;
     [SerializeField] private float earthJumpForce = 5f;
+    [SerializeField] private float moonJumpForce;
     [SerializeField] private float moonGravityDuration;
+    [SerializeField] private float increasedMoonJumpForce; 
 
     private float JumpForce;
-    [SerializeField] private Vector3 velocity;
-    private const float gravityAcceleration = -9.81f;
-    private const float moonGravityAcceleration = -1.625f;
+    private Vector3 velocity;
+    public const float gravityAcceleration = -9.81f;
+    public const float moonGravityAcceleration = -1.625f;    
     private bool useMoonGravity = false;
 
+    // Start is called before the first frame update
     void Start()
     {
         JumpForce = earthJumpForce; 
     }
+
+    // Update is called once per frame
     void Update()
     {
         ApplyGravity();
-        if (Input.GetKeyDown(KeyCode.E))
+        Jump();
+
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             StartCoroutine(MoonAbility(true)); 
         }
     }
     public void Jump()
     {
-        if (IsGrounded())
+        if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             velocity.y = JumpForce;
         }
     }
+    private bool IsGrounded()
+    {
+        return Physics.CheckSphere(transform.position, 0.25f, floorLayer);
+    }
     private void ApplyGravity()
     {
+        float gravity = useMoonGravity ? moonGravityAcceleration : gravityAcceleration;
         if (!IsGrounded())
         {
-            float gravity = useMoonGravity ? moonGravityAcceleration : gravityAcceleration;
             //gravity use to be gravityAcceleration 
             velocity.y += gravity * Time.deltaTime;
             if (velocity.y < -9f)
@@ -52,27 +62,33 @@ public class JumpModule : MonoBehaviour
         {
             velocity.y = 0;
         }
+
+        
         controller.Move(velocity * Time.deltaTime);
     }
-    private bool IsGrounded()
-    {
-        Debug.Log("is grounded");
-        return Physics.CheckSphere(transform.position, 0.25f, floorLayer);
-    }
-    public IEnumerator MoonAbility(bool isMoonGravity)
+    //The gravity ability is here so if you need to change anything it would be here. So when making modules, cut everything here and below. 
+    private void MoonApplyGravity(bool isMoonGravity)
     {
         useMoonGravity = isMoonGravity;
         JumpForce = isMoonGravity ? moonJumpForce : earthJumpForce;
-        yield return new WaitForSecondsRealtime(moonGravityDuration);
+    }
+    //This boolen was ruining the code and now the code is feeling a lot better 
+    public IEnumerator MoonAbility(bool isMoonGravity)
+    {
+        useMoonGravity = isMoonGravity;
+        JumpForce = isMoonGravity ? moonJumpForce : earthJumpForce; 
+        yield return new WaitForSeconds(moonGravityDuration);
         useMoonGravity = false;
-        JumpForce = earthJumpForce;
+        JumpForce = earthJumpForce; 
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        //Use tags whenever you want to shift the gravity of the player
         if(other.CompareTag("MoonRoom"))
         {
-            MoonApplyGravity(true); 
+            MoonApplyGravity(true);
+            JumpForce = increasedMoonJumpForce;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -81,10 +97,5 @@ public class JumpModule : MonoBehaviour
         {
             MoonApplyGravity(false);
         }
-    }
-    private void MoonApplyGravity(bool isMoonGravity)
-    {
-        useMoonGravity = isMoonGravity;
-        JumpForce = isMoonGravity ? moonJumpForce : earthJumpForce;
     }
 }

@@ -2,37 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatrolState : AiState
+namespace AI
 {
-    private int wayPointIndex;
-
-    public PatrolState(AIController contr) : base(contr)
+    public class PatrolState : AiState
     {
+        private int wayPointIndex;
 
-    }
-
-    public override void OnStateEnter()
-    {
-        controller.GetAgent().SetDestination(controller.GetPath()[wayPointIndex].position);
-    }
-
-    public override void OnStateExit()
-    {
-        
-    }
-
-    public override void OnStateRun()
-    {
-        
-        if(controller.GetAgent().remainingDistance < controller.GetAgent().stoppingDistance)
+        public PatrolState(AIController contr) : base(contr)
         {
-            wayPointIndex++;
-            if (wayPointIndex >= controller.GetPath().Length)
-            {
-                wayPointIndex = 0;
-            }
+
+        }
+
+        public override void OnStateEnter()
+        {
             controller.GetAgent().SetDestination(controller.GetPath()[wayPointIndex].position);
         }
-        
+
+        public override void OnStateExit()
+        {
+
+        }
+
+        public override void OnStateRun()
+        {
+
+            if (controller.GetAgent().remainingDistance < controller.GetAgent().stoppingDistance)
+            {
+                wayPointIndex++;
+                if (wayPointIndex >= controller.GetPath().Length)
+                {
+                    wayPointIndex = 0;
+                }
+                controller.GetAgent().SetDestination(controller.GetPath()[wayPointIndex].position);
+            }
+
+        }
     }
 }

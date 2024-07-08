@@ -35,7 +35,7 @@ public class InteractModule : MonoBehaviour
         Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 2f, interactableLayer)) //Says that ray collided with something 
+        if (Physics.Raycast(ray, out hit, 4f, interactableLayer)) //Says that ray collided with something 
         {
             if (targetInteractable == null)
             {

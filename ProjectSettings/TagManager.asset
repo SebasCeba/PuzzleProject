@@ -6,7 +6,11 @@ TagManager:
   tags:
   - Ground
   - MoonRoom
+  - CheckPoint
+  - CarRoom
   - Enemy
+  - Bullet
+  - FinalRoom
   layers:
   - Default
   - TransparentFX

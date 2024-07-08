@@ -2,45 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI; 
+using UnityEngine.AI;
 
-public class AIController : MonoBehaviour
+namespace AI
 {
-    [SerializeField] private Transform[] targets; 
-    [SerializeField] private NavMeshAgent agent;
-
-    private AiState currentState; 
-
-    // Start is called before the first frame update
-    void Start()
+    public class AIController : MonoBehaviour
     {
-        ChangeState(new PatrolState(this));
-    }
+        [SerializeField] private Transform[] targets;
+        [SerializeField] private NavMeshAgent agent;
 
-    // Update is called once per frame
-    void Update()
-    {
-        currentState.OnStateRun();
-    }
+        private AiState currentState;
 
-    public void ChangeState(AiState state)
-    {
-        if (currentState != null)
+        // Start is called before the first frame update
+        void Start()
         {
-            currentState.OnStateExit();
+            ChangeState(new PatrolState(this));
         }
-        currentState = state;
 
-        currentState.OnStateEnter(); 
-    }
+        // Update is called once per frame
+        void Update()
+        {
+            currentState.OnStateRun();
+        }
 
-    public NavMeshAgent GetAgent()
-    {
-        return agent;
-    }
+        public void ChangeState(AiState state)
+        {
+            if (currentState != null)
+            {
+                currentState.OnStateExit();
+            }
+            currentState = state;
 
-    public Transform[] GetPath()
-    {
-        return targets;
+            currentState.OnStateEnter();
+        }
+
+        public NavMeshAgent GetAgent()
+        {
+            return agent;
+        }
+
+        public Transform[] GetPath()
+        {
+            return targets;
+        }
     }
 }

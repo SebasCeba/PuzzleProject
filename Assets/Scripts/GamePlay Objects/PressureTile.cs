@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events; 
+using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class PressureTile : MonoBehaviour
 {
@@ -12,7 +14,7 @@ public class PressureTile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.attachedRigidbody == correctRigidbody)
+        if (other.attachedRigidbody == correctRigidbody)
         {
             OnActivation.Invoke();
         }
@@ -20,7 +22,7 @@ public class PressureTile : MonoBehaviour
 
     public void OnPressurePlateDown()
     {
-        animator.SetBool("IsPressedOn", true); 
+        animator.SetBool("IsPressedOn", true);
     }
 
     private void OnTriggerExit(Collider other)
@@ -33,6 +35,6 @@ public class PressureTile : MonoBehaviour
 
     public void OnPressureRelease()
     {
-        animator.SetBool("IsPressedOn", false); 
+        animator.SetBool("IsPressedOn", false);
     }
 }
