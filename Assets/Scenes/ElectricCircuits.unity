@@ -3194,6 +3194,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 2ced82b4c70b20b47a818f489917ff46, type: 2}
     - {fileID: 11400000, guid: d4fe219cdbe3c2142858aa1c4b9c6dc2, type: 2}
     - {fileID: 11400000, guid: 683a2711484538142a8525d36d46b30d, type: 2}
+    - {fileID: 11400000, guid: 056de284a7cd8fa4a8a1e692e0753461, type: 2}
+    - {fileID: 11400000, guid: 1068a28a684e75647a19789e69c71d9a, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -3250,6 +3252,34 @@ MonoBehaviour:
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1939704720}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1939704720}
+          m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+          m_MethodName: set_enabled
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
           m_CallState: 2
 --- !u!114 &694699477 stripped
 MonoBehaviour:
@@ -3896,7 +3926,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.0701875, y: 0.025}
   m_AnchorMax: {x: 0.31833333, y: 0.09555304}
-  m_AnchoredPosition: {x: 4.755, y: -2}
+  m_AnchoredPosition: {x: 4.755005, y: -2}
   m_SizeDelta: {x: -117.303, y: -32.628}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &891280050
