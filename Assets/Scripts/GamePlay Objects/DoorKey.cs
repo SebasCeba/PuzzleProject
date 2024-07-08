@@ -7,16 +7,33 @@ public class DoorKey : MonoBehaviour
 {
     //This should be used for the script that requires key. 
     [SerializeField] private UnityEvent OnInteracted;
-    private DoorController doorController; 
+    [SerializeField] private AudioSource openDoorSfx; 
+    private DoorController doorController;
 
     private void Start()
     {
         doorController = GetComponent<DoorController>();
+        if(doorController != null)
+        {
+            Debug.LogError("DoorController is not assigned in the DoorKey script on " + gameObject.name); 
+        }
     }
     public void OnTriggerEnter(Collider other)
     {
-        OnInteracted.Invoke();
-        doorController.SetKeyCollected(true);
-        //Destroy(gameObject);
+        if(other.CompareTag("Player"))
+        {
+            OnInteracted.Invoke();
+            if (doorController != null)
+            {
+                doorController.SetKeyCollected(true);
+            }
+            HideKey();
+        }
+    }
+
+    private void HideKey()
+    {
+        openDoorSfx.Play();
+        Destroy(gameObject, 1.5f); 
     }
 }

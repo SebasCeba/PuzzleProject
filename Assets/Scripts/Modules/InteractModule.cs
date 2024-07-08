@@ -37,14 +37,10 @@ public class InteractModule : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, 2f, interactableLayer)) //Says that ray collided with something 
         {
-            if (targetInteractable == null)
+            targetInteractable = hit.collider.GetComponent<IInteracterable>();
+            if (targetInteractable != null)
             {
-                targetInteractable = hit.collider.GetComponent<IInteracterable>();
                 targetInteractable.OnHoverEnter();
-            }
-            else
-            {
-                //
             }
         }
         else if (targetInteractable != null)
