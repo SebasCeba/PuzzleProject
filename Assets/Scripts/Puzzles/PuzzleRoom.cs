@@ -3,30 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PuzzleRoom : MonoBehaviour
+namespace Tmp
 {
-    [SerializeField] private bool isCompleted;
-    [SerializeField] private bool isCurrentPuzzle;
-    [SerializeField] private UnityEvent OnCompletedPuzzle; 
-    private void OnTriggerEnter(Collider other)
+    public class PuzzleRoom : MonoBehaviour
     {
-        isCurrentPuzzle = true;
-        //Start Counting the timer 
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        if(isCompleted && isCurrentPuzzle)
+        public UnityEvent EvtOnExitRoom;
+
+        private void OnTriggerExit(Collider other)
         {
-            ExitAndFinishPuzzle();
+            if (other.tag == "Player")
+            {
+                EvtOnExitRoom.Invoke();
+                gameObject.SetActive(false);
+            }
         }
-        isCurrentPuzzle = false;
-    }
-    public void ExitAndFinishPuzzle()
-    {
-        //Stop counting the timer 
-        //Send timer to gameManager
-            //gamemanager 
-        OnCompletedPuzzle.Invoke();
-        Destroy(gameObject);
     }
 }

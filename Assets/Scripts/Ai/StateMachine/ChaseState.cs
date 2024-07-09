@@ -2,31 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChaseState : AiState
+namespace AI
 {
-    private Transform targetToChase; 
-
-    public ChaseState(AIController contr, Transform target) : base(contr)
+    public class ChaseState : AiState
     {
-        targetToChase = target; 
-    }
+        private Transform targetToChase;
 
-    public override void OnStateEnter()
-    {
-
-    }
-
-    public override void OnStateExit()
-    {
-
-    }
-
-    public override void OnStateRun()
-    {
-        controller.GetAgent().SetDestination(targetToChase.position);
-        if (controller.GetAgent().remainingDistance <= controller.GetAgent().stoppingDistance)
+        public ChaseState(AIController contr, Transform target) : base(contr)
         {
-           //Change state to attack     
+            targetToChase = target;
+        }
+
+        public override void OnStateEnter()
+        {
+
+        }
+
+        public override void OnStateExit()
+        {
+
+        }
+
+        public override void OnStateRun()
+        {
+            controller.GetAgent().SetDestination(targetToChase.position);
+            if (controller.GetAgent().remainingDistance <= controller.GetAgent().stoppingDistance)
+            {
+                //Change state to attack     
+            }
         }
     }
 }

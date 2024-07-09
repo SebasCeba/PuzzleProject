@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8092818963830054999}
   - component: {fileID: 6400031500083042417}
   - component: {fileID: 8209280688612508893}
+  - component: {fileID: 3273841705881357103}
   m_Layer: 0
   m_Name: corridor_wildEnd
   m_TagString: Untagged
@@ -84,3 +85,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3273841705881357103
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3870257676299390625}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.00029223948, y: 0.06, z: 0.04511355}
+  m_Center: {x: -0.003607314, y: 0.0000000023841857, z: 0.022556774}
