@@ -70,8 +70,3 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-
-# big files
-/[Aa]ssets/Malencia/**/*.png
-/[Aa]ssets/Malencia/**/*.fbx
-/[Aa]ssets/Malencia/**/*.exr
