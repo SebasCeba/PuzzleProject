@@ -129,12 +129,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletResetTime: 2
   rb: {fileID: 8878681392973433408}
-  portalSetLayer: 0
-  portalLayer: 0
-  _portalManager: {fileID: 0}
-  _portalMovementModule: {fileID: 0}
   bluePool: {fileID: 0}
-  PortalGameManager: {fileID: 0}
-  noPortal: {fileID: 8300000, guid: 80e397195ea2940b69ee7bdbded856a5, type: 3}
-  yesPortal: {fileID: 8300000, guid: 35fbad8cdde724f11ba6481f1e64af71, type: 3}
-  PortalSource: {fileID: 0}
